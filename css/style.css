@@ -1,0 +1,67 @@
+/* Base Overrides */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar for review track */
+.reviews-wrapper {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.reviews-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Trust Metrics styling */
+.metric-item {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+.metric-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+/* Accordion Specifics */
+.faq-content {
+  will-change: max-height, padding, opacity;
+}
+
+.faq-item.active .faq-content {
+  max-height: 400px; /* Adjust if content is very long */
+  padding-bottom: 1.25rem;
+  opacity: 1;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-item.active {
+  border-color: #f97316;
+}
+
+.mobile-link {
+  @apply text-white text-xl font-medium tracking-wide w-full text-center py-4 border-b border-white/10 hover:text-brand-orange transition-colors;
+}

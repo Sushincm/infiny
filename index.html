@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infiny Transit | Reliable Travel & Comfortable Journeys</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <meta
+      name="description"
+      content="Professional taxi & tour services across multiple destinations. Book instantly via WhatsApp!"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                navy: "#050505",
+                lightNavy: "#111111",
+                orange: "#F97316",
+                orangeHover: "#EA580C",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-[#050505] text-gray-300 antialiased overflow-x-hidden">
+    <!-- Navbar -->
+    <div
+      id="navbarWrapper"
+      class="fixed top-6 left-0 w-full z-50 flex justify-center px-4 transition-all duration-500 ease-in-out transform -translate-y-[150%] opacity-0 pointer-events-none"
+    >
+      <nav
+        class="w-full max-w-5xl transition-all duration-300 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white py-3 px-6 shadow-2xl relative shadow-orange/5"
+        id="navbar"
+      >
+        <div class="flex justify-between items-center w-full">
+          <a href="#" class="block"
+            ><img
+              src="assets/images/logo.png"
+              alt="Infiny Transit"
+              class="h-8 md:h-10 w-auto"
+          /></a>
+          <div class="hidden md:flex gap-8 items-center font-medium">
+            <a href="#about" class="hover:text-brand-orange transition-colors"
+              >About</a
+            >
+            <a
+              href="#vehicles"
+              class="hover:text-brand-orange transition-colors"
+              >Vehicles</a
+            >
+            <a
+              href="#destinations"
+              class="hover:text-brand-orange transition-colors"
+              >Destinations</a
+            >
+            <a href="#faq" class="hover:text-brand-orange transition-colors"
+              >FAQ</a
+            >
+            <a
+              href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+              target="_blank"
+              class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-full font-bold transition-transform hover:scale-105"
+              >Book Now</a
+            >
+          </div>
+          <!-- Mobile Menu Button -->
+          <button
+            class="md:hidden text-2xl focus:outline-none"
+            id="mobileMenuBtn"
+          >
+            <i class="ph ph-list"></i>
+          </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div
+          class="md:hidden absolute top-[calc(100%+1rem)] left-0 w-full bg-black/90 backdrop-blur-xl border border-white/10 hidden flex-col items-center py-6 gap-4 shadow-xl rounded-3xl"
+          id="mobileMenu"
+        >
+          <a href="#about" class="mobile-link text-lg">About</a>
+          <a href="#vehicles" class="mobile-link text-lg">Vehicles</a>
+          <a href="#destinations" class="mobile-link text-lg">Destinations</a>
+          <a href="#faq" class="mobile-link text-lg">FAQ</a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- 1. HERO SECTION Wrapper for spacing -->
+    <div
+      class="w-full h-screen min-h-[600px] p-3 md:p-6 sticky top-0 z-0 bg-[#050505] box-border"
+    >
+      <section
+        class="hero relative w-full h-full flex items-end justify-start pb-24 pt-20 overflow-hidden rounded-3xl md:rounded-[2.5rem]"
+      >
+        <!-- Background Video -->
+        <div class="absolute inset-0 z-0 hero-bg">
+          <div
+            class="absolute inset-0 bg-black/30 z-10 transition-opacity"
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/50 to-transparent z-10 h-1/2 bottom-0 mt-auto"
+          ></div>
+          <video
+            src="assets/videos/hero-vid.webm"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover hidden min-[992px]:block scale-105"
+          ></video>
+          <video
+            src="assets/videos/hero-vid-responsive.webm"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover block min-[992px]:hidden scale-105"
+          ></video>
+        </div>
+
+        <div
+          class="container mx-auto px-6 max-w-7xl relative z-20 text-left text-white w-full"
+        >
+          <div class="hero-content space-y-4 max-w-4xl">
+            <span
+              class="text-brand-orange font-inter font-medium text-sm md:text-base tracking-widest uppercase block mb-4"
+              >Together, We Create Impact</span
+            >
+            <h1
+              class="text-6xl md:text-7xl lg:text-[5rem] font-inter font-medium leading-[1.1] tracking-tight mb-4"
+            >
+              Reliable Travel.<br />Comfortable Journeys.
+            </h1>
+            <p
+              class="text-lg md:text-xl text-gray-200 max-w-2xl font-inter font-normal pt-2 mb-8"
+            >
+              Professional taxi & tour services across multiple destinations.<br />
+              Safe, clean, and on time.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-start pt-6">
+              <a
+                href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+                target="_blank"
+                class="hero-btn-primary flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-inter font-medium text-md transition-transform hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+              >
+                Book Now <i class="ph ph-arrow-right font-bold"></i>
+              </a>
+              <a
+                href="#about"
+                class="hero-btn-secondary flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 px-6 py-3 rounded-full font-inter font-medium text-md transition-transform hover:scale-105"
+              >
+                Learn About Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div
+      class="relative z-10 rounded-t-[40px] shadow-[0_-20px_40px_rgba(0,0,0,0.5)] overflow-hidden bg-[#0a0a0a]"
+    >
+      <!-- 2. ABOUT SECTION -->
+      <section id="about" class="py-24 bg-[#0a0a0a] overflow-hidden">
+        <div class="container mx-auto px-6 max-w-8xl">
+          <!-- Top Row -->
+          <div
+            class="flex justify-between items-center text-gray-500 mb-16 uppercase text-sm font-bold tracking-widest px-4 md:px-8"
+          >
+            <span>About</span>
+            <span>&copy;2026</span>
+          </div>
+
+          <!-- Text Reveal Area -->
+          <div
+            class="max-w-7xl mx-auto px-4 md:px-8 mb-24 min-h-[30vh] flex items-center justify-center"
+          >
+            <h3
+              class="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.3] text-[#444] text-reveal-element"
+              style="font-family: &quot;Inter&quot;, sans-serif"
+            >
+              Reliable travel can be a transformational element in your journey.
+              Our services emphasize exceptional comfort, from maintaining a
+              pristine fleet to providing safe rides that ensure every trip is
+              punctual and reliable.
+            </h3>
+          </div>
+
+          <!-- Points Box in 1 row on desktop -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-white/10 px-4 md:px-8 pb-8"
+          >
+            <div class="flex items-start gap-4 points-box">
+              <i
+                class="ph ph-steering-wheel text-4xl text-brand-orange mt-1"
+              ></i>
+              <div>
+                <h4 class="font-bold text-white text-xl mb-1">Safe Drivers</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Experienced and background-<br />checked.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 points-box">
+              <i class="ph ph-sparkle text-4xl text-brand-orange mt-1"></i>
+              <div>
+                <h4 class="font-bold text-white text-xl mb-1">
+                  Clean Vehicles
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Sanitized and well-maintained fleet.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 points-box">
+              <i
+                class="ph ph-clock-countdown text-4xl text-brand-orange mt-1"
+              ></i>
+              <div>
+                <h4 class="font-bold text-white text-xl mb-1">
+                  On-time Guarantee
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Punctuality is our top priority.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 points-box">
+              <i
+                class="ph ph-calendar-check text-4xl text-brand-orange mt-1"
+              ></i>
+              <div>
+                <h4 class="font-bold text-white text-xl mb-1">
+                  Years of Service
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  A legacy of reliable transportation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. TRUST METRICS -->
+      <section class="py-16 bg-brand-navy text-white relative">
+        <div
+          class="absolute inset-0 opacity-5"
+          style="
+            background-image: radial-gradient(
+              circle at 2px 2px,
+              white 1px,
+              transparent 0
+            );
+            background-size: 32px 32px;
+          "
+        ></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center metrics-container"
+          >
+            <div
+              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+            >
+              <i class="ph ph-car-profile text-4xl text-brand-orange mb-4"></i>
+              <h4 class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="counter" data-target="1200">0</span>+
+              </h4>
+              <p class="text-gray-400 font-medium">Trips Completed</p>
+            </div>
+            <div
+              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+            >
+              <i class="ph ph-map-pin-line text-4xl text-brand-orange mb-4"></i>
+              <h4 class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="counter" data-target="35">0</span>+
+              </h4>
+              <p class="text-gray-400 font-medium">Destinations</p>
+            </div>
+            <div
+              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+            >
+              <i class="ph ph-jeep text-4xl text-brand-orange mb-4"></i>
+              <h4 class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="counter" data-target="8">0</span>+
+              </h4>
+              <p class="text-gray-400 font-medium">Vehicles Available</p>
+            </div>
+            <div
+              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+            >
+              <i class="ph-fill ph-star text-4xl text-brand-orange mb-4"></i>
+              <h4 class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="counter-float" data-target="4.8">0.0</span>★
+              </h4>
+              <p class="text-gray-400 font-medium">Customer Rating</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. VEHICLE SHOWCASE -->
+      <section id="vehicles" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center mb-16 animate-section">
+            <h2
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2"
+            >
+              Our Fleet
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-brand-navy">
+              Choose Your Ride
+            </h3>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+              From comfortable sedans to spacious SUVs, we have the perfect
+              vehicle for your journey.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Vehicle 1 -->
+            <div
+              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
+            >
+              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
+                <img
+                  src="assets/images/swift.avif"
+                  alt="Swift Dzire"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style="filter: hue-rotate(-15deg) brightness(1.05)"
+                />
+                <div
+                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                >
+                  AC
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
+                  Swift Dzire
+                </h4>
+                <ul
+                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
+                >
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-users text-brand-orange text-lg"></i> 4
+                    Seating Capacity
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 2
+                    Luggage Bags
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                    for: Small Family
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Swift%20Dzire"
+                  target="_blank"
+                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-navy text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
+                  >Book Dzire</a
+                >
+              </div>
+            </div>
+
+            <!-- Vehicle 2 -->
+            <div
+              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
+            >
+              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
+                <img
+                  src="assets/images/ertiga.avif"
+                  alt="Ertiga"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style="filter: sepia(0.2) hue-rotate(180deg)"
+                />
+                <div
+                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                >
+                  AC
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
+                  Ertiga
+                </h4>
+                <ul
+                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
+                >
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-users text-brand-orange text-lg"></i> 6
+                    Seating Capacity
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 3
+                    Luggage Bags
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                    for: Mid Family
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Ertiga"
+                  target="_blank"
+                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-orangeHover text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
+                  >Book Ertiga</a
+                >
+              </div>
+            </div>
+
+            <!-- Vehicle 3 -->
+            <div
+              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
+            >
+              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
+                <img
+                  src="assets/images/innova.avif"
+                  alt="Innova"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style="filter: contrast(1.1) brightness(0.95)"
+                />
+                <div
+                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                >
+                  AC
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
+                  Innova
+                </h4>
+                <ul
+                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
+                >
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-users text-brand-orange text-lg"></i> 7-8
+                    Seating
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 5
+                    Luggage Bags
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                    for: Long Tours
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Innova"
+                  target="_blank"
+                  class="mt-auto block text-center w-full bg-brand-navy hover:bg-black text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03] shadow-lg shadow-brand-navy/20"
+                  >Book Innova</a
+                >
+              </div>
+            </div>
+
+            <!-- Vehicle 4 -->
+            <div
+              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
+            >
+              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
+                <img
+                  src="assets/images/wagonR.avif"
+                  alt="Wagon R"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style="filter: grayscale(0.2) brightness(1.2)"
+                />
+                <div
+                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                >
+                  AC
+                </div>
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
+                  Wagon R
+                </h4>
+                <ul
+                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
+                >
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-users text-brand-orange text-lg"></i> 4
+                    Seating Capacity
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 1-2
+                    Luggage Bags
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                    for: Local Trips
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Wagon%20R"
+                  target="_blank"
+                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-navy text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
+                  >Book Wagon R</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12 animate-section">
+            <a
+              href="https://wa.me/917994334254?text=Hi%20I%20need%20a%20quote"
+              target="_blank"
+              class="inline-flex items-center justify-center gap-2 bg-brand-navy hover:bg-brand-lightNavy text-white px-8 py-3 rounded-full font-medium transition-transform hover:scale-105 shadow-xl"
+            >
+              Need help choosing? Message Us <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. DESTINATIONS & PACKAGES (Merged strategically for flow) -->
+      <section
+        id="destinations"
+        class="py-24 bg-brand-navy text-white relative"
+      >
+        <div
+          class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-brand-lightNavy to-transparent"
+        ></div>
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+          <div class="text-center mb-16 animate-section">
+            <h2
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2"
+            >
+              Explore
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold">
+              Top Destinations & Packages
+            </h3>
+            <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
+              Discover the beauty of our top routes or let us custom tailor a
+              package just for you.
+            </p>
+          </div>
+
+          <!-- Destinations Grid -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 relative z-20"
+          >
+            <div
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+            >
+              <img
+                src="assets/images/destination.png"
+                alt="Munnar"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
+              >
+                <h4 class="text-2xl font-bold mb-2">Munnar Hills</h4>
+                <div
+                  class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Munnar"
+                    target="_blank"
+                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    >Explore Trip</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer hidden md:block"
+            >
+              <img
+                src="assets/images/destination.png"
+                alt="Alleppey"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style="filter: hue-rotate(-20deg)"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
+              >
+                <h4 class="text-2xl font-bold mb-2">Alleppey Backwaters</h4>
+                <div
+                  class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Alleppey"
+                    target="_blank"
+                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    >Explore Trip</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+            >
+              <img
+                src="assets/images/destination.png"
+                alt="Thekkady"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style="filter: hue-rotate(40deg) saturate(1.2)"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
+              >
+                <h4 class="text-2xl font-bold mb-2">Thekkady Forest</h4>
+                <div
+                  class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Thekkady"
+                    target="_blank"
+                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    >Explore Trip</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Packages -->
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-section"
+          >
+            <div
+              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+            >
+              <i
+                class="ph ph-airplane-tilt text-4xl text-brand-orange mb-4 block"
+              ></i>
+              <h4 class="text-xl font-bold mb-2">Airport Pickup</h4>
+              <p class="text-gray-400 text-sm mb-6">
+                Punctual and reliable airport transfer services 24/7.
+              </p>
+              <a
+                href="https://wa.me/917994334254?text=Book%20Airport%20Pickup"
+                target="_blank"
+                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                >Book Now <i class="ph ph-arrow-right"></i
+              ></a>
+            </div>
+            <div
+              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+            >
+              <i class="ph ph-sun text-4xl text-brand-orange mb-4 block"></i>
+              <h4 class="text-xl font-bold mb-2">One Day Tour</h4>
+              <p class="text-gray-400 text-sm mb-6">
+                Explore the city's highlights in a comfortable, guided day trip.
+              </p>
+              <a
+                href="https://wa.me/917994334254?text=Book%20One%20Day%20Tour"
+                target="_blank"
+                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                >Book Now <i class="ph ph-arrow-right"></i
+              ></a>
+            </div>
+            <div
+              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+            >
+              <i
+                class="ph ph-calendar-blank text-4xl text-brand-orange mb-4 block"
+              ></i>
+              <h4 class="text-xl font-bold mb-2">Multi-Day Tour</h4>
+              <p class="text-gray-400 text-sm mb-6">
+                Comprehensive travel packages for extended vacations.
+              </p>
+              <a
+                href="https://wa.me/917994334254?text=Book%20Multi-Day%20Tour"
+                target="_blank"
+                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                >Book Now <i class="ph ph-arrow-right"></i
+              ></a>
+            </div>
+            <div
+              class="package-card bg-brand-orange p-8 rounded-3xl border border-brand-orange shadow-2xl shadow-black/80 shadow-brand-orange/20 relative overflow-hidden"
+            >
+              <div class="absolute top-0 right-0 p-4 opacity-10">
+                <i class="ph-fill ph-crown text-8xl"></i>
+              </div>
+              <i
+                class="ph ph-navigation-arrow text-4xl text-white mb-4 block relative z-10"
+              ></i>
+              <h4 class="text-xl font-bold mb-2 text-white relative z-10">
+                Custom Trip
+              </h4>
+              <p class="text-white/90 text-sm mb-6 relative z-10">
+                Create your own itinerary. We follow your lead.
+              </p>
+              <a
+                href="https://wa.me/917994334254?text=Custom%20Trip%20Request"
+                target="_blank"
+                class="bg-[#0a0a0a] text-brand-orange px-4 py-2 rounded-full text-sm font-bold inline-block hover:scale-105 transition-transform relative z-10"
+                >Request Quote</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. REVIEWS -->
+      <section class="py-24 bg-[#0a0a0a] overflow-hidden">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center mb-16 animate-section">
+            <h2
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2"
+            >
+              Testimonials
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-white">
+              What Our Riders Say
+            </h3>
+          </div>
+
+          <div class="relative max-w-5xl mx-auto">
+            <!-- Slider track -->
+            <div class="reviews-wrapper overflow-hidden pb-8 px-4">
+              <div
+                class="reviews-track flex gap-8 w-full cursor-grab active:cursor-grabbing"
+              >
+                <!-- Review 1 -->
+                <div
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                >
+                  <div class="flex text-brand-orange mb-4">
+                    <i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i>
+                  </div>
+                  <p class="text-gray-300 mb-6 text-lg italic">
+                    "Incredible service! The driver was on time, the car was
+                    spotless, and the drive to Munnar was incredibly smooth.
+                    Highly recommend Infiny Transit."
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                    >
+                      JD
+                    </div>
+                    <div>
+                      <h5 class="font-bold text-white">John Doe</h5>
+                      <p class="text-sm text-gray-500">Tourist from UK</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Review 2 -->
+                <div
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                >
+                  <div class="flex text-brand-orange mb-4">
+                    <i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i>
+                  </div>
+                  <p class="text-gray-300 mb-6 text-lg italic">
+                    "Very professional. Booking via WhatsApp was super fast. The
+                    driver knew all the best local spots. Will definitely use
+                    them again next year!"
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                    >
+                      AS
+                    </div>
+                    <div>
+                      <h5 class="font-bold text-white">Arjun Sharma</h5>
+                      <p class="text-sm text-gray-500">Family Trip</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Review 3 -->
+                <div
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                >
+                  <div class="flex text-brand-orange mb-4">
+                    <i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star"></i
+                    ><i class="ph-fill ph-star-half"></i>
+                  </div>
+                  <p class="text-gray-300 mb-6 text-lg italic">
+                    "Airport pickup was flawless even though my flight was
+                    delayed. Great communication and very competitive pricing."
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                    >
+                      MR
+                    </div>
+                    <div>
+                      <h5 class="font-bold text-white">Maria Rodriguez</h5>
+                      <p class="text-sm text-gray-500">Business Traveler</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Controls -->
+            <div class="flex justify-center gap-4 mt-6">
+              <button
+                class="slider-btn-prev w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors"
+              >
+                <i class="ph ph-caret-left"></i>
+              </button>
+              <button
+                class="slider-btn-next w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors"
+              >
+                <i class="ph ph-caret-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section id="faq" class="py-24 bg-[#050505]">
+        <div class="container mx-auto px-6 max-w-4xl animate-section">
+          <div class="text-center mb-16">
+            <h2
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2"
+            >
+              Got Questions?
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-white">
+              Frequently Asked Questions
+            </h3>
+          </div>
+
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div
+              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+              >
+                <span class="font-bold text-lg text-white"
+                  >How do I book a ride?</span
+                >
+                <i
+                  class="ph ph-plus text-xl text-brand-orange transition-transform duration-300 transform faq-icon"
+                ></i>
+              </button>
+              <div
+                class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400 pb-5">
+                  Booking is incredibly easy! Just click any "Book Now" floating
+                  WhatsApp button on our site, send us your requirements, and
+                  our team will confirm your booking instantly.
+                </p>
+              </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div
+              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+              >
+                <span class="font-bold text-lg text-white"
+                  >Are your drivers experienced?</span
+                >
+                <i
+                  class="ph ph-plus text-xl text-brand-orange transition-transform duration-300 transform faq-icon"
+                ></i>
+              </button>
+              <div
+                class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400 pb-5">
+                  Yes, all our drivers carry years of experience, possess
+                  thorough knowledge of local routes, and undergo strict
+                  background checks to ensure your complete safety and comfort.
+                </p>
+              </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div
+              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+              >
+                <span class="font-bold text-lg text-white"
+                  >What payment methods do you accept?</span
+                >
+                <i
+                  class="ph ph-plus text-xl text-brand-orange transition-transform duration-300 transform faq-icon"
+                ></i>
+              </button>
+              <div
+                class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400 pb-5">
+                  We accept Cash, UPI (Google Pay, PhonePe, Paytm), and major
+                  Credit/Debit cards upon arrival or via advance online links.
+                </p>
+              </div>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div
+              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+              >
+                <span class="font-bold text-lg text-white"
+                  >What is your cancellation policy?</span
+                >
+                <i
+                  class="ph ph-plus text-xl text-brand-orange transition-transform duration-300 transform faq-icon"
+                ></i>
+              </button>
+              <div
+                class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+              >
+                <p class="text-gray-400 pb-5">
+                  We offer free cancellation up to 24 hours before your
+                  scheduled trip. For later cancellations, a small
+                  administrative fee may apply. Please refer to your booking
+                  confirmation for specifics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT & FOOTER -->
+      <footer
+        class="bg-brand-navy text-white pt-20 pb-10 border-t-4 border-brand-orange"
+      >
+        <div class="container mx-auto px-6 max-w-7xl animate-section">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+          >
+            <!-- Brand Info -->
+            <div class="lg:col-span-2">
+              <a href="#" class="block mb-6"
+                ><img
+                  src="assets/images/logo.png"
+                  alt="Infiny Transit"
+                  class="h-10 md:h-12 w-auto"
+              /></a>
+              <p class="text-gray-400 max-w-sm mb-8">
+                Professional taxi and touring services offering you the best and
+                safest journeys across multiple breathtaking destinations.
+              </p>
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
+                  ><i class="ph-fill ph-facebook-logo"></i
+                ></a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
+                  ><i class="ph-fill ph-instagram-logo"></i
+                ></a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
+                  ><i class="ph-fill ph-twitter-logo"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+              <ul class="space-y-3 text-gray-400">
+                <li>
+                  <a
+                    href="#about"
+                    class="hover:text-brand-orange transition-colors"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#vehicles"
+                    class="hover:text-brand-orange transition-colors"
+                    >Our Fleet</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#destinations"
+                    class="hover:text-brand-orange transition-colors"
+                    >Top Destinations</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    class="hover:text-brand-orange transition-colors"
+                    >FAQs</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+              <h4 class="text-xl font-bold mb-6">Contact Us</h4>
+              <ul class="space-y-4 text-gray-400">
+                <li>
+                  <a
+                    href="tel:7994334254"
+                    class="flex items-center gap-3 hover:text-brand-orange transition-colors"
+                  >
+                    <i
+                      class="ph-fill ph-phone-call text-xl text-brand-orange"
+                    ></i>
+                    <span>+91 79943 34254</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:infinytransit@gmail.com"
+                    class="flex items-center gap-3 hover:text-brand-orange transition-colors"
+                  >
+                    <i
+                      class="ph-fill ph-envelope-simple text-xl text-brand-orange"
+                    ></i>
+                    <span>infinytransit@gmail.com</span>
+                  </a>
+                </li>
+              </ul>
+              <a
+                href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+                target="_blank"
+                class="mt-8 inline-block bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 w-full text-center"
+              >
+                Book via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+          >
+            <p>&copy; 2026 Infiny Transit. All rights reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+              <a href="#" class="hover:text-brand-orange">Privacy Policy</a>
+              <a href="#" class="hover:text-brand-orange">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 10. FIXED WHATSAPP BUTTON -->
+    <a
+      href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transform transition-transform hover:scale-110"
+      aria-label="Book on WhatsApp"
+    >
+      <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

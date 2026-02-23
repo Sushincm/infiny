@@ -1,0 +1,420 @@
+Project: Infiniti Transit – Direct Booking Landing
+1️⃣ CORE STRATEGY
+Primary Goal:
+
+Generate more bookings directly from website.
+
+Secondary Goals:
+
+Build trust fast
+
+Showcase vehicles clearly
+
+Show trip coverage
+
+Make WhatsApp the fastest conversion path
+
+Core Conversion Rule:
+
+Every 2 sections → visible booking trigger.
+
+No user should scroll more than 1.5 screens without seeing a CTA.
+
+2️⃣ TECH STACK
+
+HTML5 semantic structure
+
+Tailwind CSS utility styling
+
+GSAP + ScrollTrigger (animation)
+
+Vanilla JS modular structure
+
+Optimized images (WebP)
+
+No frameworks
+
+3️⃣ PERFORMANCE ANIMATION RULES (MANDATORY)
+✅ Only animate:
+
+transform (translate, scale, rotate)
+
+opacity
+
+small filter effects (light blur)
+
+clip-path (light usage)
+
+❌ Never animate:
+
+height
+
+width
+
+margin
+
+padding
+
+top / left positioning
+
+box-shadow on large containers
+
+border-radius on large containers
+
+Why?
+
+Layout properties = reflow + repaint
+Transform + opacity = GPU accelerated
+
+4️⃣ FULL PAGE STRUCTURE
+🔹 1. HERO SECTION
+Purpose:
+
+Immediate trust + immediate action.
+
+Layout:
+
+Background image (vehicle in motion)
+
+Headline:
+“Reliable Travel. Comfortable Journeys.”
+
+Subtext:
+“Professional taxi & tour services across multiple destinations.”
+
+CTA Buttons:
+[Book Now] → WhatsApp
+[View Vehicles] → Scroll
+
+Animation:
+
+Fade + translateY
+
+Buttons scale hover only
+
+Conversion Element:
+
+Primary CTA uses:
+
+https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip
+🔹 2. ABOUT SECTION
+Purpose:
+
+Build legitimacy.
+
+Content:
+
+Years of service
+
+Safe drivers
+
+Clean vehicles
+
+On-time guarantee
+
+Layout:
+
+Split:
+Left → Image
+Right → Text
+
+Animation:
+
+Left → translateX(-50 → 0)
+Right → translateX(50 → 0)
+
+Opacity fade included.
+
+🔹 3. TRUST METRICS (SOCIAL PROOF)
+Content Example:
+
+1200+ Trips Completed
+
+35+ Destinations Covered
+
+8+ Vehicles Available
+
+4.8★ Customer Rating
+
+Animation:
+
+Count up numbers
+
+TranslateY entrance
+
+Stagger fade
+
+No number height shift.
+
+🔹 4. VEHICLE SHOWCASE
+Purpose:
+
+Show capability.
+
+Each Card:
+
+Vehicle image
+
+Seating capacity
+
+AC / Non AC
+
+Best for (family, tour, airport)
+
+Book button
+
+Interaction:
+
+Hover:
+
+scale(1.03)
+
+subtle overlay fade
+
+Scroll:
+Stagger fade + translateY
+
+No expanding card animations.
+
+🔹 5. DESTINATIONS / TOURIST PLACES
+Purpose:
+
+Trigger imagination.
+
+Layout:
+
+Grid of destinations.
+
+Each card:
+
+Large image
+
+Location name
+
+“Explore Trip” button
+
+Hover:
+Image scale(1.05)
+Overlay fade
+
+No resizing grid items.
+
+🔹 6. PACKAGES / TRIP TYPES
+Examples:
+
+Airport Pickup
+
+One Day Tour
+
+Multi-Day Tour
+
+Custom Trip
+
+Each card:
+
+Icon
+
+Description
+
+WhatsApp CTA
+
+Animation:
+Fade + slight translateY.
+
+🔹 7. REVIEWS (TESTIMONIALS)
+Purpose:
+
+Trust multiplier.
+
+Layout:
+
+Horizontal slider track.
+
+Animation:
+Use transform X for sliding.
+Never animate left property.
+
+Auto loop or manual arrow.
+
+🔹 8. FAQ SECTION
+Purpose:
+
+Remove friction.
+
+Questions:
+
+How do I book?
+
+Are drivers experienced?
+
+Payment methods?
+
+Cancellation policy?
+
+Animation:
+
+Accordion via:
+
+scaleY transform
+OR
+
+max-height with overflow hidden (minimal use)
+
+Avoid height animation loops.
+
+🔹 9. CONTACT SECTION
+Include:
+
+Phone:
+7994334254 (clickable tel link)
+
+Email:
+Infinitransit@gmail.com
+ (mailto link)
+
+Layout:
+
+Centered simple contact display.
+
+Optional:
+Small contact form (name + phone + message).
+
+🔹 10. FIXED WHATSAPP BUTTON
+Purpose:
+
+Permanent conversion access.
+
+Position:
+
+Bottom-right fixed.
+
+Behavior:
+
+Hover scale only.
+No bounce.
+No floating animation.
+
+Link:
+https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip
+Mobile Consideration:
+
+Ensure it does not block CTA buttons.
+
+5️⃣ SCROLL ANIMATION SYSTEM
+
+Register once:
+
+gsap.registerPlugin(ScrollTrigger);
+
+Generic section pattern:
+
+gsap.from(".animate-section", {
+  scrollTrigger: {
+    trigger: ".animate-section",
+    start: "top 80%"
+  },
+  y: 60,
+  opacity: 0,
+  duration: 1,
+  ease: "power3.out"
+});
+
+Keep triggers minimal.
+Group elements.
+Avoid creating 40 separate triggers.
+
+6️⃣ CTA DISTRIBUTION STRATEGY
+
+Place “Book Now”:
+
+Hero
+
+After Vehicles
+
+After Destinations
+
+Before Footer
+
+Never only once.
+
+7️⃣ MOBILE-FIRST PRIORITY
+
+Test on:
+
+375px width
+
+768px width
+
+Rules:
+
+No oversized headings
+
+Cards stack vertically
+
+WhatsApp not covering buttons
+
+Minimum tap size 44px
+
+8️⃣ VISUAL IDENTITY
+
+Choose one:
+
+Luxury:
+
+Black / gold / champagne
+
+Modern:
+
+Dark navy / white / orange accent
+
+Avoid:
+
+Random gradients
+
+Neon unless brand supports it
+
+Consistency builds trust.
+
+9️⃣ FILE STRUCTURE
+
+index.html
+assets/images
+assets/icons
+js/main.js
+css (optional custom overrides)
+
+Keep JS separated by function blocks.
+
+🔟 PERFORMANCE CHECKLIST
+
+Before delivery:
+
+✔ Lighthouse > 85
+✔ No layout shift
+✔ No heavy shadow animations
+✔ Images lazy loaded
+✔ WebP format
+✔ WhatsApp link tested
+✔ Tel link tested
+
+CONVERSION PSYCHOLOGY RULES
+
+People booking transport care about:
+
+Safety
+
+Reliability
+
+Price transparency
+
+Quick response
+
+So:
+
+Emphasize:
+“Instant WhatsApp Response”
+“Professional Drivers”
+“Clean & Sanitized Vehicles”
+
+Not:
+Fancy animations.
