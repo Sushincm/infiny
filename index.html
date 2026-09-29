@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infiny Transit | Reliable Travel & Comfortable Journeys</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <title>Veyil Transit | Reliable Travel & Comfortable Journeys</title>
+    <link rel="icon" type="image/webp" href="assets/images/favicon.webp" />
     <meta
       name="description"
       content="Professional taxi & tour services across multiple destinations. Book instantly via WhatsApp!"
@@ -14,119 +14,182 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Outfit", "sans-serif"],
-              inter: ["Inter", "sans-serif"],
-            },
-            colors: {
-              brand: {
-                navy: "#050505",
-                lightNavy: "#111111",
-                orange: "#F97316",
-                orangeHover: "#EA580C",
+      if (window.tailwind)
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Manrope", "sans-serif"],
+                inter: ["Manrope", "sans-serif"],
+              },
+              colors: {
+                brand: {
+                  navy: "#07284f",
+                  lightNavy: "#eef3f8",
+                  orange: "#f47a20",
+                  orangeHover: "#d95f0d",
+                },
               },
             },
           },
-        },
-      };
+        };
     </script>
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="bg-[#050505] text-gray-300 antialiased overflow-x-hidden">
+  <body class="site-home bg-white text-slate-800 antialiased overflow-x-hidden">
     <!-- Navbar -->
     <div
       id="navbarWrapper"
-      class="fixed top-6 left-0 w-full z-50 flex justify-center px-4 transition-all duration-500 ease-in-out transform -translate-y-[150%] opacity-0 pointer-events-none"
+      class="fixed top-4 md:top-6 left-0 w-full z-50 flex justify-center px-4 transition-all duration-300 translate-y-0 opacity-100 pointer-events-auto"
     >
       <nav
-        class="w-full max-w-5xl transition-all duration-300 bg-black/80 backdrop-blur-xl border border-white/10 rounded-full text-white py-3 px-6 shadow-2xl relative shadow-orange/5"
+        class="w-full max-w-5xl transition-all duration-300 bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-[5px] text-slate-800 py-3 px-6 shadow-xl shadow-slate-900/5 relative"
         id="navbar"
       >
         <div class="flex justify-between items-center w-full">
           <a href="#" class="block"
             ><img
-              src="assets/images/logo.png"
-              alt="Infiny Transit"
+              src="assets/images/logo.webp"
+              alt="Veyil Transit"
               class="h-8 md:h-10 w-auto"
           /></a>
-          <div class="hidden md:flex gap-8 items-center font-medium">
-            <a href="#about" class="hover:text-brand-orange transition-colors"
-              >About</a
+          <div class="hidden md:flex gap-7 items-center font-medium">
+            <a
+              href="index.html"
+              class="text-slate-700 hover:text-brand-orange transition-colors"
+              >Home</a
             >
             <a
-              href="#vehicles"
-              class="hover:text-brand-orange transition-colors"
-              >Vehicles</a
+              href="package.html"
+              class="text-slate-700 hover:text-brand-orange transition-colors"
+              >Tour Packages</a
             >
             <a
               href="#destinations"
-              class="hover:text-brand-orange transition-colors"
+              class="text-slate-700 hover:text-brand-orange transition-colors"
               >Destinations</a
             >
-            <a href="#faq" class="hover:text-brand-orange transition-colors"
+            <a
+              href="#why-us"
+              class="text-slate-700 hover:text-brand-orange transition-colors"
+              >Why Us</a
+            >
+            <a
+              href="#faq"
+              class="text-slate-700 hover:text-brand-orange transition-colors"
               >FAQ</a
             >
             <a
               href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
               target="_blank"
-              class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-full font-bold transition-transform hover:scale-105"
+              class="bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-2.5 rounded-[5px] font-bold transition-transform hover:scale-105 shadow-md shadow-orange-500/20"
               >Book Now</a
             >
           </div>
           <!-- Mobile Menu Button -->
           <button
-            class="md:hidden text-2xl focus:outline-none"
+            class="md:hidden text-2xl text-slate-800 focus:outline-none p-1 rounded-[5px] hover:bg-slate-100 transition-colors"
             id="mobileMenuBtn"
+            aria-label="Toggle menu"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
           >
             <i class="ph ph-list"></i>
           </button>
         </div>
         <!-- Mobile Menu -->
         <div
-          class="md:hidden absolute top-[calc(100%+1rem)] left-0 w-full bg-black/90 backdrop-blur-xl border border-white/10 hidden flex-col items-center py-6 gap-4 shadow-xl rounded-3xl"
+          class="md:hidden absolute top-[calc(100%+0.75rem)] left-0 w-full bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl rounded-2xl p-4 text-slate-800"
           id="mobileMenu"
+          aria-hidden="true"
         >
-          <a href="#about" class="mobile-link text-lg">About</a>
-          <a href="#vehicles" class="mobile-link text-lg">Vehicles</a>
-          <a href="#destinations" class="mobile-link text-lg">Destinations</a>
-          <a href="#faq" class="mobile-link text-lg">FAQ</a>
+          <div class="flex flex-col divide-y divide-slate-100 font-medium text-slate-800">
+            <a
+              href="index.html"
+              class="mobile-link py-3 px-2 flex items-center justify-between hover:text-brand-orange hover:bg-slate-50/80 rounded-lg transition-colors"
+            >
+              <span>Home</span>
+              <i class="ph ph-caret-right text-slate-400 text-sm"></i>
+            </a>
+            <a
+              href="package.html"
+              class="mobile-link py-3 px-2 flex items-center justify-between text-brand-orange font-bold hover:bg-orange-50/50 rounded-lg transition-colors"
+            >
+              <span>7 Days Kerala Package</span>
+              <i class="ph ph-caret-right text-brand-orange text-sm"></i>
+            </a>
+            <a
+              href="#destinations"
+              class="mobile-link py-3 px-2 flex items-center justify-between hover:text-brand-orange hover:bg-slate-50/80 rounded-lg transition-colors"
+            >
+              <span>Destinations</span>
+              <i class="ph ph-caret-right text-slate-400 text-sm"></i>
+            </a>
+            <a
+              href="#why-us"
+              class="mobile-link py-3 px-2 flex items-center justify-between hover:text-brand-orange hover:bg-slate-50/80 rounded-lg transition-colors"
+            >
+              <span>Why Us</span>
+              <i class="ph ph-caret-right text-slate-400 text-sm"></i>
+            </a>
+            <a
+              href="#faq"
+              class="mobile-link py-3 px-2 flex items-center justify-between hover:text-brand-orange hover:bg-slate-50/80 rounded-lg transition-colors"
+            >
+              <span>FAQ</span>
+              <i class="ph ph-caret-right text-slate-400 text-sm"></i>
+            </a>
+          </div>
+          <div class="pt-3 mt-1 border-t border-slate-100">
+            <a
+              href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+              target="_blank"
+              class="w-full flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white py-3 rounded-[11px] font-bold text-center shadow-lg shadow-orange-500/20 transition-all active:scale-95"
+            >
+              <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+              <span>Book Now</span>
+            </a>
+          </div>
         </div>
       </nav>
     </div>
 
-    <!-- 1. HERO SECTION Wrapper for spacing -->
+    <!-- 1. HERO SECTION (Fits screen edge-to-edge with no curved shape) -->
     <div
-      class="w-full h-screen min-h-[600px] p-3 md:p-6 sticky top-0 z-0 bg-[#050505] box-border"
+      class="w-full h-screen min-h-[600px] sticky top-0 z-0 bg-white box-border p-0"
     >
       <section
-        class="hero relative w-full h-full flex items-end justify-start pb-24 pt-20 overflow-hidden rounded-3xl md:rounded-[2.5rem]"
+        class="hero relative w-full h-full flex items-end justify-start pb-24 pt-20 overflow-hidden rounded-none"
       >
         <!-- Background Video -->
         <div class="absolute inset-0 z-0 hero-bg">
           <div
-            class="absolute inset-0 bg-black/30 z-10 transition-opacity"
+            class="absolute inset-0 bg-black/40 z-10 transition-opacity"
           ></div>
           <div
-            class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/50 to-transparent z-10 h-1/2 bottom-0 mt-auto"
+            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 h-2/3 bottom-0 mt-auto"
           ></div>
           <video
             src="assets/videos/hero-vid.webm"
@@ -150,178 +213,190 @@
           class="container mx-auto px-6 max-w-7xl relative z-20 text-left text-white w-full"
         >
           <div class="hero-content space-y-4 max-w-4xl">
-            <span
-              class="text-brand-orange font-inter font-medium text-sm md:text-base tracking-widest uppercase block mb-4"
-              >Together, We Create Impact</span
-            >
             <h1
-              class="text-6xl md:text-7xl lg:text-[5rem] font-inter font-medium leading-[1.1] tracking-tight mb-4"
+              class="hero-split-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-inter font-bold leading-[1.18] tracking-tight mb-3 sm:mb-4 text-white"
             >
-              Reliable Travel.<br />Comfortable Journeys.
+              Kerala, Made Easy.<br />Every Mile, Thoughtfully Driven.
             </h1>
             <p
-              class="text-lg md:text-xl text-gray-200 max-w-2xl font-inter font-normal pt-2 mb-8"
+              class="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl font-inter font-normal pt-1 sm:pt-2 mb-6 sm:mb-8"
             >
-              Professional taxi & tour services across multiple destinations.<br />
-              Safe, clean, and on time.
+              Professional chauffeur-driven taxis and tailor-made Kerala
+              tours,<br class="hidden sm:block" />
+              with clean vehicles, transparent pricing, and local expertise.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-start pt-6">
               <a
                 href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
                 target="_blank"
-                class="hero-btn-primary flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-full font-inter font-medium text-md transition-transform hover:scale-105 shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+                class="hero-btn-primary flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-7 py-3.5 rounded-full font-inter font-semibold text-base transition-transform hover:scale-105 shadow-[0_0_25px_rgba(249,115,22,0.5)]"
               >
-                Book Now <i class="ph ph-arrow-right font-bold"></i>
+                Book Now <i class="ph-bold ph-arrow-up-right"></i>
               </a>
               <a
-                href="#about"
-                class="hero-btn-secondary flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 px-6 py-3 rounded-full font-inter font-medium text-md transition-transform hover:scale-105"
+                href="package.html"
+                class="hero-btn-secondary flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-gray-100 px-7 py-3.5 rounded-full font-inter font-semibold text-base transition-transform hover:scale-105 shadow-md"
               >
-                Learn About Us
+                7 Days Kerala Package <i class="ph-bold ph-arrow-up-right"></i>
               </a>
+            </div>
+            <div
+              class="hero-assurances flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 text-sm text-white/90"
+            >
+              <span
+                ><i class="ph-fill ph-check-circle"></i> Verified drivers</span
+              >
+              <span
+                ><i class="ph-fill ph-check-circle"></i> Upfront pricing</span
+              >
+              <span
+                ><i class="ph-fill ph-check-circle"></i> 24/7 trip support</span
+              >
             </div>
           </div>
         </div>
       </section>
     </div>
 
+    <!-- Main Content Flow in Pure Light/White Theme -->
     <div
-      class="relative z-10 rounded-t-[40px] shadow-[0_-20px_40px_rgba(0,0,0,0.5)] overflow-hidden bg-[#0a0a0a]"
+      class="relative z-10 overflow-hidden bg-white shadow-[0_-15px_30px_rgba(0,0,0,0.05)]"
     >
-      <!-- 2. ABOUT SECTION -->
-      <section id="about" class="py-24 bg-[#0a0a0a] overflow-hidden">
-        <div class="container mx-auto px-6 max-w-8xl">
-          <!-- Top Row -->
-          <div
-            class="flex justify-between items-center text-gray-500 mb-16 uppercase text-sm font-bold tracking-widest px-4 md:px-8"
-          >
-            <span>About</span>
-            <span>&copy;2026</span>
-          </div>
-
-          <!-- Text Reveal Area -->
-          <div
-            class="max-w-7xl mx-auto px-4 md:px-8 mb-24 min-h-[30vh] flex items-center justify-center"
-          >
+      <!-- 2. WHY CHOOSE VEYIL TRANSIT (Trust & Value Props) -->
+      <section id="why-us" class="py-24 bg-slate-50 border-b border-slate-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center mb-16 animate-section">
+            <span
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2 block"
+            >
+              Why Choose Us
+            </span>
             <h3
-              class="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.3] text-[#444] text-reveal-element"
-              style="font-family: &quot;Inter&quot;, sans-serif"
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
             >
-              Reliable travel can be a transformational element in your journey.
-              Our services emphasize exceptional comfort, from maintaining a
-              pristine fleet to providing safe rides that ensure every trip is
-              punctual and reliable.
+              Why Travel With Veyil Transit?
             </h3>
+            <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+              Dedicated to giving you the safest, most comfortable, and
+              hassle-free travel experience across Kerala.
+            </p>
           </div>
 
-          <!-- Points Box in 1 row on desktop -->
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-white/10 px-4 md:px-8 pb-8"
-          >
-            <div class="flex items-start gap-4 points-box">
-              <i
-                class="ph ph-steering-wheel text-4xl text-brand-orange mt-1"
-              ></i>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Pillar 1 -->
+            <div
+              class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:bg-brand-navy hover:border-brand-navy hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+            >
               <div>
-                <h4 class="font-bold text-white text-xl mb-1">Safe Drivers</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                  Experienced and background-<br />checked.
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4 points-box">
-              <i class="ph ph-sparkle text-4xl text-brand-orange mt-1"></i>
-              <div>
-                <h4 class="font-bold text-white text-xl mb-1">
-                  Clean Vehicles
+                <div
+                  class="w-14 h-14 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-brand-navy transition-all duration-300"
+                >
+                  <i class="ph ph-receipt"></i>
+                </div>
+                <h4
+                  class="text-xl font-bold text-slate-900 group-hover:text-white transition-colors mb-3"
+                >
+                  Transparent Rates
                 </h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                  Sanitized and well-maintained fleet.
+                <p
+                  class="text-slate-600 group-hover:text-slate-200 transition-colors text-sm leading-relaxed"
+                >
+                  No hidden charges, zero toll surprises, and 100% upfront
+                  pricing clarity on both per-km and package trips.
                 </p>
               </div>
-            </div>
-            <div class="flex items-start gap-4 points-box">
-              <i
-                class="ph ph-clock-countdown text-4xl text-brand-orange mt-1"
-              ></i>
-              <div>
-                <h4 class="font-bold text-white text-xl mb-1">
-                  On-time Guarantee
-                </h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                  Punctuality is our top priority.
-                </p>
+              <div
+                class="pt-6 border-t border-slate-100 group-hover:border-white/15 mt-6 text-xs font-semibold text-brand-orange group-hover:text-orange-300 transition-colors flex items-center gap-1.5"
+              >
+                <i class="ph-bold ph-check"></i> Best Price Guarantee
               </div>
             </div>
-            <div class="flex items-start gap-4 points-box">
-              <i
-                class="ph ph-calendar-check text-4xl text-brand-orange mt-1"
-              ></i>
-              <div>
-                <h4 class="font-bold text-white text-xl mb-1">
-                  Years of Service
-                </h4>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                  A legacy of reliable transportation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- 3. TRUST METRICS -->
-      <section class="py-16 bg-brand-navy text-white relative">
-        <div
-          class="absolute inset-0 opacity-5"
-          style="
-            background-image: radial-gradient(
-              circle at 2px 2px,
-              white 1px,
-              transparent 0
-            );
-            background-size: 32px 32px;
-          "
-        ></div>
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-          <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center metrics-container"
-          >
+            <!-- Pillar 2 -->
             <div
-              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+              class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:bg-brand-navy hover:border-brand-navy hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
-              <i class="ph ph-car-profile text-4xl text-brand-orange mb-4"></i>
-              <h4 class="text-4xl md:text-5xl font-bold mb-2">
-                <span class="counter" data-target="1200">0</span>+
-              </h4>
-              <p class="text-gray-400 font-medium">Trips Completed</p>
+              <div>
+                <div
+                  class="w-14 h-14 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-brand-navy transition-all duration-300"
+                >
+                  <i class="ph ph-steering-wheel"></i>
+                </div>
+                <h4
+                  class="text-xl font-bold text-slate-900 group-hover:text-white transition-colors mb-3"
+                >
+                  Friendly &amp; Expert Drivers
+                </h4>
+                <p
+                  class="text-slate-600 group-hover:text-slate-200 transition-colors text-sm leading-relaxed"
+                >
+                  Polite, verified drivers who know Kerala roads well and help
+                  you have a safe, relaxed journey.
+                </p>
+              </div>
+              <div
+                class="pt-6 border-t border-slate-100 group-hover:border-white/15 mt-6 text-xs font-semibold text-brand-orange group-hover:text-orange-300 transition-colors flex items-center gap-1.5"
+              >
+                <i class="ph-bold ph-check"></i> 5+ Yrs Hill Experience
+              </div>
             </div>
+
+            <!-- Pillar 3 -->
             <div
-              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+              class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:bg-brand-navy hover:border-brand-navy hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
-              <i class="ph ph-map-pin-line text-4xl text-brand-orange mb-4"></i>
-              <h4 class="text-4xl md:text-5xl font-bold mb-2">
-                <span class="counter" data-target="35">0</span>+
-              </h4>
-              <p class="text-gray-400 font-medium">Destinations</p>
+              <div>
+                <div
+                  class="w-14 h-14 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-brand-navy transition-all duration-300"
+                >
+                  <i class="ph ph-sparkle"></i>
+                </div>
+                <h4
+                  class="text-xl font-bold text-slate-900 group-hover:text-white transition-colors mb-3"
+                >
+                  Sanitized &amp; Modern Fleet
+                </h4>
+                <p
+                  class="text-slate-600 group-hover:text-slate-200 transition-colors text-sm leading-relaxed"
+                >
+                  100% Air-conditioned, impeccably cleaned, and regularly
+                  serviced vehicles for maximum touring comfort.
+                </p>
+              </div>
+              <div
+                class="pt-6 border-t border-slate-100 group-hover:border-white/15 mt-6 text-xs font-semibold text-brand-orange group-hover:text-orange-300 transition-colors flex items-center gap-1.5"
+              >
+                <i class="ph-bold ph-check"></i> Clean &amp; Odor-Free
+              </div>
             </div>
+
+            <!-- Pillar 4 -->
             <div
-              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
+              class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:bg-brand-navy hover:border-brand-navy hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
-              <i class="ph ph-jeep text-4xl text-brand-orange mb-4"></i>
-              <h4 class="text-4xl md:text-5xl font-bold mb-2">
-                <span class="counter" data-target="8">0</span>+
-              </h4>
-              <p class="text-gray-400 font-medium">Vehicles Available</p>
-            </div>
-            <div
-              class="metric-item flex flex-col items-center justify-center p-6 bg-brand-lightNavy rounded-2xl border border-white/5"
-            >
-              <i class="ph-fill ph-star text-4xl text-brand-orange mb-4"></i>
-              <h4 class="text-4xl md:text-5xl font-bold mb-2">
-                <span class="counter-float" data-target="4.8">0.0</span>★
-              </h4>
-              <p class="text-gray-400 font-medium">Customer Rating</p>
+              <div>
+                <div
+                  class="w-14 h-14 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-brand-navy transition-all duration-300"
+                >
+                  <i class="ph ph-headset"></i>
+                </div>
+                <h4
+                  class="text-xl font-bold text-slate-900 group-hover:text-white transition-colors mb-3"
+                >
+                  24/7 Instant Support
+                </h4>
+                <p
+                  class="text-slate-600 group-hover:text-slate-200 transition-colors text-sm leading-relaxed"
+                >
+                  Round-the-clock trip coordination on call and WhatsApp for
+                  seamless, stress-free travel assistance anytime.
+                </p>
+              </div>
+              <div
+                class="pt-6 border-t border-slate-100 group-hover:border-white/15 mt-6 text-xs font-semibold text-brand-orange group-hover:text-orange-300 transition-colors flex items-center gap-1.5"
+              >
+                <i class="ph-bold ph-check"></i> 24/7 Roadside Assistance
+              </div>
             </div>
           </div>
         </div>
@@ -336,233 +411,253 @@
             >
               Our Fleet
             </h2>
-            <h3 class="text-4xl md:text-5xl font-bold text-brand-navy">
+            <h3
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
+            >
               Choose Your Ride
             </h3>
-            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
               From comfortable sedans to spacious SUVs, we have the perfect
               vehicle for your journey.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Vehicle 1 -->
-            <div
-              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
-            >
-              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
-                <img
-                  src="assets/images/swift.avif"
-                  alt="Swift Dzire"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style="filter: hue-rotate(-15deg) brightness(1.05)"
-                />
+          <!-- Fleet Carousel on mobile / Grid on desktop (lg+) -->
+          <div class="vehicles-swiper swiper overflow-hidden lg:!overflow-visible py-2">
+            <div class="swiper-wrapper lg:!grid lg:!grid-cols-4 lg:!gap-8">
+              <!-- Vehicle 1 -->
+              <div
+                class="swiper-slide vehicle-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 group flex flex-col hover:shadow-2xl transition-all duration-300 h-auto"
+              >
                 <div
-                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
-                ></div>
-                <div
-                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                  class="relative overflow-hidden h-52 sm:h-64 lg:h-48 bg-slate-100 flex-shrink-0"
                 >
-                  AC
+                  <img
+                    src="assets/images/swift.webp"
+                    alt="Swift Dzire"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style="filter: hue-rotate(-15deg) brightness(1.05)"
+                    loading="lazy"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur text-white font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                  >
+                    AC
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                  <h4 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+                    Swift Dzire
+                  </h4>
+                  <ul
+                    class="space-y-3 mb-8 text-sm sm:text-base text-slate-600 flex-grow"
+                  >
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-users text-brand-orange text-lg"></i> 4
+                      Seating Capacity
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-suitcase text-brand-orange text-lg"></i> 2
+                      Luggage Bags
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                      for: Small Family
+                    </li>
+                  </ul>
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Swift%20Dzire"
+                    target="_blank"
+                    class="mt-auto block text-center w-full bg-slate-900 hover:bg-brand-orange text-white py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-md"
+                    >Book Dzire</a
+                  >
                 </div>
               </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
-                  Swift Dzire
-                </h4>
-                <ul
-                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
+
+              <!-- Vehicle 2 -->
+              <div
+                class="swiper-slide vehicle-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 group flex flex-col hover:shadow-2xl transition-all duration-300 h-auto"
+              >
+                <div
+                  class="relative overflow-hidden h-52 sm:h-64 lg:h-48 bg-slate-100 flex-shrink-0"
                 >
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-users text-brand-orange text-lg"></i> 4
-                    Seating Capacity
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 2
-                    Luggage Bags
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
-                    for: Small Family
-                  </li>
-                </ul>
-                <a
-                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Swift%20Dzire"
-                  target="_blank"
-                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-navy text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
-                  >Book Dzire</a
+                  <img
+                    src="assets/images/ertiga.webp"
+                    alt="Ertiga"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style="filter: sepia(0.2) hue-rotate(180deg)"
+                    loading="lazy"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur text-white font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                  >
+                    AC
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                  <h4 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+                    Ertiga
+                  </h4>
+                  <ul
+                    class="space-y-3 mb-8 text-sm sm:text-base text-slate-600 flex-grow"
+                  >
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-users text-brand-orange text-lg"></i> 6
+                      Seating Capacity
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-suitcase text-brand-orange text-lg"></i> 3
+                      Luggage Bags
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                      for: Mid Family
+                    </li>
+                  </ul>
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Ertiga"
+                    target="_blank"
+                    class="mt-auto block text-center w-full bg-slate-900 hover:bg-brand-orange text-white py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-md"
+                    >Book Ertiga</a
+                  >
+                </div>
+              </div>
+
+              <!-- Vehicle 3 -->
+              <div
+                class="swiper-slide vehicle-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 group flex flex-col hover:shadow-2xl transition-all duration-300 h-auto"
+              >
+                <div
+                  class="relative overflow-hidden h-52 sm:h-64 lg:h-48 bg-slate-100 flex-shrink-0"
                 >
+                  <img
+                    src="assets/images/innova.webp"
+                    alt="Innova"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style="filter: contrast(1.1) brightness(0.95)"
+                    loading="lazy"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur text-white font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                  >
+                    AC
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                  <h4 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+                    Innova
+                  </h4>
+                  <ul
+                    class="space-y-3 mb-8 text-sm sm:text-base text-slate-600 flex-grow"
+                  >
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-users text-brand-orange text-lg"></i> 7-8
+                      Seating
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-suitcase text-brand-orange text-lg"></i> 5
+                      Luggage Bags
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                      for: Long Tours
+                    </li>
+                  </ul>
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Innova"
+                    target="_blank"
+                    class="mt-auto block text-center w-full bg-slate-900 hover:bg-brand-orange text-white py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-md"
+                    >Book Innova</a
+                  >
+                </div>
+              </div>
+
+              <!-- Vehicle 4 -->
+              <div
+                class="swiper-slide vehicle-card bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 group flex flex-col hover:shadow-2xl transition-all duration-300 h-auto"
+              >
+                <div
+                  class="relative overflow-hidden h-52 sm:h-64 lg:h-48 bg-slate-100 flex-shrink-0"
+                >
+                  <img
+                    src="assets/images/wagonR.webp"
+                    alt="Wagon R"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style="filter: grayscale(0.2) brightness(1.2)"
+                    loading="lazy"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur text-white font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
+                  >
+                    AC
+                  </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                  <h4 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+                    Wagon R
+                  </h4>
+                  <ul
+                    class="space-y-3 mb-8 text-sm sm:text-base text-slate-600 flex-grow"
+                  >
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-users text-brand-orange text-lg"></i> 4
+                      Seating Capacity
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-suitcase text-brand-orange text-lg"></i> 1-2
+                      Luggage Bags
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <i class="ph ph-target text-brand-orange text-lg"></i> Best
+                      for: Local Trips
+                    </li>
+                  </ul>
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Wagon%20R"
+                    target="_blank"
+                    class="mt-auto block text-center w-full bg-slate-900 hover:bg-brand-orange text-white py-3 rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-md"
+                    >Book Wagon R</a
+                  >
+                </div>
               </div>
             </div>
 
-            <!-- Vehicle 2 -->
-            <div
-              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
-            >
-              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
-                <img
-                  src="assets/images/ertiga.avif"
-                  alt="Ertiga"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style="filter: sepia(0.2) hue-rotate(180deg)"
-                />
-                <div
-                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
-                ></div>
-                <div
-                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
-                >
-                  AC
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
-                  Ertiga
-                </h4>
-                <ul
-                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
-                >
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-users text-brand-orange text-lg"></i> 6
-                    Seating Capacity
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 3
-                    Luggage Bags
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
-                    for: Mid Family
-                  </li>
-                </ul>
-                <a
-                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Ertiga"
-                  target="_blank"
-                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-orangeHover text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
-                  >Book Ertiga</a
-                >
-              </div>
-            </div>
-
-            <!-- Vehicle 3 -->
-            <div
-              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
-            >
-              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
-                <img
-                  src="assets/images/innova.avif"
-                  alt="Innova"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style="filter: contrast(1.1) brightness(0.95)"
-                />
-                <div
-                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
-                ></div>
-                <div
-                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
-                >
-                  AC
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
-                  Innova
-                </h4>
-                <ul
-                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
-                >
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-users text-brand-orange text-lg"></i> 7-8
-                    Seating
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 5
-                    Luggage Bags
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
-                    for: Long Tours
-                  </li>
-                </ul>
-                <a
-                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20an%20Innova"
-                  target="_blank"
-                  class="mt-auto block text-center w-full bg-brand-navy hover:bg-black text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03] shadow-lg shadow-brand-navy/20"
-                  >Book Innova</a
-                >
-              </div>
-            </div>
-
-            <!-- Vehicle 4 -->
-            <div
-              class="vehicle-card bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 group flex flex-col"
-            >
-              <div class="relative overflow-hidden h-52 sm:h-64 lg:h-48">
-                <img
-                  src="assets/images/wagonR.avif"
-                  alt="Wagon R"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  style="filter: grayscale(0.2) brightness(1.2)"
-                />
-                <div
-                  class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/10 transition-colors duration-300"
-                ></div>
-                <div
-                  class="absolute top-4 right-4 bg-white/90 backdrop-blur text-brand-navy font-bold px-3 py-1 rounded-full text-xs sm:text-sm shadow-md"
-                >
-                  AC
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h4 class="text-xl sm:text-2xl font-bold text-brand-navy mb-4">
-                  Wagon R
-                </h4>
-                <ul
-                  class="space-y-3 mb-8 text-sm sm:text-base text-gray-600 flex-grow"
-                >
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-users text-brand-orange text-lg"></i> 4
-                    Seating Capacity
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-suitcase text-brand-orange text-lg"></i> 1-2
-                    Luggage Bags
-                  </li>
-                  <li class="flex items-center gap-3">
-                    <i class="ph ph-target text-brand-orange text-lg"></i> Best
-                    for: Local Trips
-                  </li>
-                </ul>
-                <a
-                  href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20book%20a%20Wagon%20R"
-                  target="_blank"
-                  class="mt-auto block text-center w-full bg-brand-lightNavy hover:bg-brand-navy text-white py-3 rounded-xl font-medium transition-transform hover:scale-[1.03]"
-                  >Book Wagon R</a
-                >
-              </div>
-            </div>
+            <!-- Responsive Swiper Pagination Dots -->
+            <div class="vehicles-pagination flex justify-center items-center gap-1.5 mt-8 lg:hidden"></div>
           </div>
 
           <div class="text-center mt-12 animate-section">
             <a
               href="https://wa.me/917994334254?text=Hi%20I%20need%20a%20quote"
               target="_blank"
-              class="inline-flex items-center justify-center gap-2 bg-brand-navy hover:bg-brand-lightNavy text-white px-8 py-3 rounded-full font-medium transition-transform hover:scale-105 shadow-xl"
+              class="inline-flex items-center justify-center gap-2 text-slate-800 hover:text-brand-orange text-base font-semibold underline underline-offset-8 decoration-2 decoration-brand-orange/60 hover:decoration-brand-orange transition-all group"
             >
-              Need help choosing? Message Us <i class="ph ph-arrow-right"></i>
+              <span>Need help choosing? Message Us</span>
+              <i
+                class="ph ph-arrow-right transition-transform group-hover:translate-x-1 text-brand-orange"
+              ></i>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- 5. DESTINATIONS & PACKAGES (Merged strategically for flow) -->
+      <!-- 5. DESTINATIONS & PACKAGES -->
       <section
         id="destinations"
-        class="py-24 bg-brand-navy text-white relative"
+        class="py-24 bg-slate-100 text-slate-900 relative border-t border-slate-200 overflow-hidden"
       >
-        <div
-          class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-brand-lightNavy to-transparent"
-        ></div>
         <div class="container mx-auto px-6 max-w-7xl relative z-10">
           <div class="text-center mb-16 animate-section">
             <h2
@@ -570,41 +665,106 @@
             >
               Explore
             </h2>
-            <h3 class="text-4xl md:text-5xl font-bold">
-              Top Destinations & Packages
+            <h3
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
+            >
+              Top Destinations &amp; Packages
             </h3>
-            <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
+            <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
               Discover the beauty of our top routes or let us custom tailor a
               package just for you.
             </p>
           </div>
 
+          <!-- Featured Tour Package Banner (Scenic Card Style - Entire Card Clickable) -->
+          <a
+            href="package.html"
+            class="mb-16 rounded-3xl border border-slate-200/80 shadow-2xl relative overflow-hidden group min-h-[380px] flex flex-col justify-center cursor-pointer transition-all duration-300 hover:border-brand-orange/50 hover:shadow-orange-500/10 block"
+          >
+            <!-- Background Image -->
+            <img
+              src="assets/images/kerala-package-bg.webp"
+              alt="7 Days Kerala Journey - Munnar Tea Hills & Alleppey Houseboat"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <!-- Dark Gradient Overlay for Readability -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-900/40"
+            ></div>
+
+            <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-3.5 text-left">
+                  <div class="inline-flex items-center gap-2.5">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-orange-400">Featured Itinerary</span>
+                    <span class="text-white/30">&bull;</span>
+                    <span class="text-xs font-medium text-slate-300">7 Days / 6 Nights</span>
+                  </div>
+                  <div class="space-y-1.5">
+                    <h4 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
+                      7 Days in God's Own Country
+                    </h4>
+                    <p class="text-sm sm:text-base font-medium text-orange-300/90 flex flex-wrap items-center gap-1.5">
+                      <i class="ph ph-map-pin text-brand-orange"></i>
+                      <span>Kochi</span>
+                      <span class="text-white/30">&rarr;</span>
+                      <span>Munnar</span>
+                      <span class="text-white/30">&rarr;</span>
+                      <span>Thekkady</span>
+                      <span class="text-white/30">&rarr;</span>
+                      <span>Alleppey</span>
+                      <span class="text-white/30">&rarr;</span>
+                      <span>Varkala</span>
+                      <span class="text-white/30">&rarr;</span>
+                      <span>Trivandrum</span>
+                    </p>
+                  </div>
+                  <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+                    From misty tea hills in Munnar to sunset over Varkala's red cliffs and a peaceful night aboard an Alleppey backwater houseboat — an unhurried road trip with your own private cab and chauffeur.
+                  </p>
+                </div>
+                <div class="lg:col-span-4 flex items-center lg:justify-center">
+                  <div
+                    class="group-hover:scale-105 relative inline-flex items-center gap-3.5 bg-gradient-to-r from-brand-orange to-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-base shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-300 border border-white/20"
+                  >
+                    <span class="tracking-wide">Explore</span>
+                    <div
+                      class="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
+                    >
+                      <i class="ph-bold ph-arrow-up-right text-base"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
           <!-- Destinations Grid -->
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 relative z-20"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 relative z-20"
           >
             <div
-              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.png"
+                src="assets/images/destination.webp"
                 alt="Munnar"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
               ></div>
               <div
                 class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
               >
-                <h4 class="text-2xl font-bold mb-2">Munnar Hills</h4>
+                <h4 class="text-2xl font-bold text-white mb-2">Munnar Hills</h4>
                 <div
                   class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 >
                   <a
                     href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Munnar"
                     target="_blank"
-                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    class="inline-block mt-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-sm px-5 py-2 rounded-full font-medium shadow-md transition-colors"
                     >Explore Trip</a
                   >
                 </div>
@@ -612,28 +772,30 @@
             </div>
 
             <div
-              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer hidden md:block"
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.png"
+                src="assets/images/destination.webp"
                 alt="Alleppey"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style="filter: hue-rotate(-20deg)"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
               ></div>
               <div
                 class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
               >
-                <h4 class="text-2xl font-bold mb-2">Alleppey Backwaters</h4>
+                <h4 class="text-2xl font-bold text-white mb-2">
+                  Alleppey Backwaters
+                </h4>
                 <div
                   class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 >
                   <a
                     href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Alleppey"
                     target="_blank"
-                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    class="inline-block mt-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-sm px-5 py-2 rounded-full font-medium shadow-md transition-colors"
                     >Explore Trip</a
                   >
                 </div>
@@ -641,28 +803,30 @@
             </div>
 
             <div
-              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.png"
+                src="assets/images/destination.webp"
                 alt="Thekkady"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style="filter: hue-rotate(40deg) saturate(1.2)"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
               ></div>
               <div
                 class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
               >
-                <h4 class="text-2xl font-bold mb-2">Thekkady Forest</h4>
+                <h4 class="text-2xl font-bold text-white mb-2">
+                  Thekkady Forest
+                </h4>
                 <div
                   class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 >
                   <a
                     href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Thekkady"
                     target="_blank"
-                    class="inline-block mt-2 bg-brand-orange text-white text-sm px-5 py-2 rounded-full font-medium"
+                    class="inline-block mt-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-sm px-5 py-2 rounded-full font-medium shadow-md transition-colors"
                     >Explore Trip</a
                   >
                 </div>
@@ -671,62 +835,68 @@
           </div>
 
           <!-- Packages -->
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-section"
-          >
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
-              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+              class="package-card bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-orange/50 hover:-translate-y-1 transition-all duration-300 group"
             >
               <i
-                class="ph ph-airplane-tilt text-4xl text-brand-orange mb-4 block"
+                class="ph ph-airplane-tilt text-4xl text-brand-orange mb-4 block group-hover:scale-110 transition-transform"
               ></i>
-              <h4 class="text-xl font-bold mb-2">Airport Pickup</h4>
-              <p class="text-gray-400 text-sm mb-6">
+              <h4 class="text-xl font-bold text-slate-900 mb-2">
+                Airport Pickup
+              </h4>
+              <p class="text-slate-600 text-sm mb-6">
                 Punctual and reliable airport transfer services 24/7.
               </p>
               <a
                 href="https://wa.me/917994334254?text=Book%20Airport%20Pickup"
                 target="_blank"
-                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                class="text-brand-orange hover:text-brand-orangeHover font-semibold flex items-center gap-2 hover:gap-3 transition-all"
                 >Book Now <i class="ph ph-arrow-right"></i
               ></a>
             </div>
             <div
-              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+              class="package-card bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-orange/50 hover:-translate-y-1 transition-all duration-300 group"
             >
-              <i class="ph ph-sun text-4xl text-brand-orange mb-4 block"></i>
-              <h4 class="text-xl font-bold mb-2">One Day Tour</h4>
-              <p class="text-gray-400 text-sm mb-6">
+              <i
+                class="ph ph-sun text-4xl text-brand-orange mb-4 block group-hover:scale-110 transition-transform"
+              ></i>
+              <h4 class="text-xl font-bold text-slate-900 mb-2">
+                One Day Tour
+              </h4>
+              <p class="text-slate-600 text-sm mb-6">
                 Explore the city's highlights in a comfortable, guided day trip.
               </p>
               <a
                 href="https://wa.me/917994334254?text=Book%20One%20Day%20Tour"
                 target="_blank"
-                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                class="text-brand-orange hover:text-brand-orangeHover font-semibold flex items-center gap-2 hover:gap-3 transition-all"
                 >Book Now <i class="ph ph-arrow-right"></i
               ></a>
             </div>
             <div
-              class="package-card bg-brand-lightNavy p-8 rounded-3xl border border-white/10 hover:border-brand-orange/50 transition-colors"
+              class="package-card bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-orange/50 hover:-translate-y-1 transition-all duration-300 group"
             >
               <i
-                class="ph ph-calendar-blank text-4xl text-brand-orange mb-4 block"
+                class="ph ph-calendar-blank text-4xl text-brand-orange mb-4 block group-hover:scale-110 transition-transform"
               ></i>
-              <h4 class="text-xl font-bold mb-2">Multi-Day Tour</h4>
-              <p class="text-gray-400 text-sm mb-6">
+              <h4 class="text-xl font-bold text-slate-900 mb-2">
+                Multi-Day Tour
+              </h4>
+              <p class="text-slate-600 text-sm mb-6">
                 Comprehensive travel packages for extended vacations.
               </p>
               <a
                 href="https://wa.me/917994334254?text=Book%20Multi-Day%20Tour"
                 target="_blank"
-                class="text-brand-orange font-medium flex items-center gap-2 hover:gap-3 transition-all"
+                class="text-brand-orange hover:text-brand-orangeHover font-semibold flex items-center gap-2 hover:gap-3 transition-all"
                 >Book Now <i class="ph ph-arrow-right"></i
               ></a>
             </div>
             <div
-              class="package-card bg-brand-orange p-8 rounded-3xl border border-brand-orange shadow-2xl shadow-black/80 shadow-brand-orange/20 relative overflow-hidden"
+              class="package-card bg-gradient-to-br from-brand-orange to-orange-600 p-8 rounded-3xl border border-orange-500 shadow-xl shadow-orange-500/20 relative overflow-hidden text-white hover:-translate-y-1 transition-all duration-300"
             >
-              <div class="absolute top-0 right-0 p-4 opacity-10">
+              <div class="absolute top-0 right-0 p-4 opacity-15">
                 <i class="ph-fill ph-crown text-8xl"></i>
               </div>
               <i
@@ -735,13 +905,13 @@
               <h4 class="text-xl font-bold mb-2 text-white relative z-10">
                 Custom Trip
               </h4>
-              <p class="text-white/90 text-sm mb-6 relative z-10">
+              <p class="text-white/95 text-sm mb-6 relative z-10">
                 Create your own itinerary. We follow your lead.
               </p>
               <a
                 href="https://wa.me/917994334254?text=Custom%20Trip%20Request"
                 target="_blank"
-                class="bg-[#0a0a0a] text-brand-orange px-4 py-2 rounded-full text-sm font-bold inline-block hover:scale-105 transition-transform relative z-10"
+                class="bg-white text-brand-orange hover:bg-orange-50 px-5 py-2.5 rounded-full text-sm font-bold inline-block hover:scale-105 transition-transform relative z-10 shadow-md"
                 >Request Quote</a
               >
             </div>
@@ -749,8 +919,136 @@
         </div>
       </section>
 
+      <!-- 3-STEP EASY BOOKING (How It Works) -->
+      <section class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center mb-16 animate-section">
+            <span
+              class="text-sm font-bold tracking-widest text-brand-orange uppercase mb-2 block"
+            >
+              Quick &amp; Simple
+            </span>
+            <h3
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
+            >
+              3-Step Easy Booking
+            </h3>
+            <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+              Book your private cab or custom Kerala holiday package in under 60
+              seconds.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <!-- Step 1 -->
+            <div
+              class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-md relative group hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span
+                    class="text-4xl font-extrabold text-orange-200 group-hover:text-brand-orange transition-colors"
+                    >01</span
+                  >
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center text-2xl"
+                  >
+                    <i class="ph ph-car-profile"></i>
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-3">
+                  Choose Vehicle or Package
+                </h4>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Select your preferred car (Dzire, Ertiga, Innova, Tempo) or
+                  pick our flagship 7 Days Kerala Tour package.
+                </p>
+              </div>
+              <div
+                class="mt-8 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500"
+              >
+                Step 1 &bull; Instant Selection
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-md relative group hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span
+                    class="text-4xl font-extrabold text-orange-200 group-hover:text-brand-orange transition-colors"
+                    >02</span
+                  >
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl"
+                  >
+                    <i class="ph-bold ph-whatsapp-logo"></i>
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-3">
+                  Chat on WhatsApp for Quote
+                </h4>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Send your travel dates and requirements. Our team sends you
+                  instant all-inclusive transparent pricing.
+                </p>
+              </div>
+              <div
+                class="mt-8 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500"
+              >
+                Step 2 &bull; Fast Confirmation
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div
+              class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-md relative group hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <span
+                    class="text-4xl font-extrabold text-orange-200 group-hover:text-brand-orange transition-colors"
+                    >03</span
+                  >
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center text-2xl"
+                  >
+                    <i class="ph ph-heart"></i>
+                  </div>
+                </div>
+                <h4 class="text-2xl font-bold text-slate-900 mb-3">
+                  Enjoy a Smooth Journey
+                </h4>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Meet your dedicated chauffeur on time and explore God's Own
+                  Country in total safety and luxury.
+                </p>
+              </div>
+              <div
+                class="mt-8 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500"
+              >
+                Step 3 &bull; Unforgettable Memories
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="https://wa.me/917994334254?text=Hi%20Veyil%20Transit%2C%20I%20would%20like%20to%20plan%20a%20trip."
+              target="_blank"
+              class="inline-flex items-center justify-center gap-3 bg-brand-navy hover:bg-[#0b386e] text-white px-8 py-4 rounded-xl font-bold text-base transition-transform hover:scale-105 shadow-md"
+            >
+              <i class="ph-bold ph-whatsapp-logo text-xl text-emerald-400"></i>
+              <span>Start WhatsApp Booking Now</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- 6. REVIEWS -->
-      <section class="py-24 bg-[#0a0a0a] overflow-hidden">
+      <section class="py-24 bg-white border-t border-slate-200 overflow-hidden">
         <div class="container mx-auto px-6 max-w-7xl">
           <div class="text-center mb-16 animate-section">
             <h2
@@ -758,7 +1056,9 @@
             >
               Testimonials
             </h2>
-            <h3 class="text-4xl md:text-5xl font-bold text-white">
+            <h3
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
+            >
               What Our Riders Say
             </h3>
           </div>
@@ -771,84 +1071,84 @@
               >
                 <!-- Review 1 -->
                 <div
-                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div class="flex text-brand-orange mb-4">
+                  <div class="flex text-brand-orange mb-4 text-xl">
                     <i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i>
                   </div>
-                  <p class="text-gray-300 mb-6 text-lg italic">
+                  <p class="text-slate-700 mb-6 text-lg italic leading-relaxed">
                     "Incredible service! The driver was on time, the car was
                     spotless, and the drive to Munnar was incredibly smooth.
-                    Highly recommend Infiny Transit."
+                    Highly recommend Veyil Transit."
                   </p>
                   <div class="flex items-center gap-4">
                     <div
-                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                      class="w-12 h-12 bg-orange-100 text-brand-orange rounded-full flex items-center justify-center font-bold"
                     >
                       JD
                     </div>
                     <div>
-                      <h5 class="font-bold text-white">John Doe</h5>
-                      <p class="text-sm text-gray-500">Tourist from UK</p>
+                      <h5 class="font-bold text-slate-900">John Doe</h5>
+                      <p class="text-sm text-slate-500">Tourist from UK</p>
                     </div>
                   </div>
                 </div>
                 <!-- Review 2 -->
                 <div
-                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div class="flex text-brand-orange mb-4">
+                  <div class="flex text-brand-orange mb-4 text-xl">
                     <i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i>
                   </div>
-                  <p class="text-gray-300 mb-6 text-lg italic">
+                  <p class="text-slate-700 mb-6 text-lg italic leading-relaxed">
                     "Very professional. Booking via WhatsApp was super fast. The
                     driver knew all the best local spots. Will definitely use
                     them again next year!"
                   </p>
                   <div class="flex items-center gap-4">
                     <div
-                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                      class="w-12 h-12 bg-orange-100 text-brand-orange rounded-full flex items-center justify-center font-bold"
                     >
                       AS
                     </div>
                     <div>
-                      <h5 class="font-bold text-white">Arjun Sharma</h5>
-                      <p class="text-sm text-gray-500">Family Trip</p>
+                      <h5 class="font-bold text-slate-900">Arjun Sharma</h5>
+                      <p class="text-sm text-slate-500">Family Trip</p>
                     </div>
                   </div>
                 </div>
                 <!-- Review 3 -->
                 <div
-                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-[#050505] p-8 rounded-3xl border border-white/5 shadow-sm"
+                  class="review-slide flex-none w-full md:w-[calc(50%-1rem)] bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div class="flex text-brand-orange mb-4">
+                  <div class="flex text-brand-orange mb-4 text-xl">
                     <i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star"></i
                     ><i class="ph-fill ph-star-half"></i>
                   </div>
-                  <p class="text-gray-300 mb-6 text-lg italic">
+                  <p class="text-slate-700 mb-6 text-lg italic leading-relaxed">
                     "Airport pickup was flawless even though my flight was
                     delayed. Great communication and very competitive pricing."
                   </p>
                   <div class="flex items-center gap-4">
                     <div
-                      class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-500"
+                      class="w-12 h-12 bg-orange-100 text-brand-orange rounded-full flex items-center justify-center font-bold"
                     >
                       MR
                     </div>
                     <div>
-                      <h5 class="font-bold text-white">Maria Rodriguez</h5>
-                      <p class="text-sm text-gray-500">Business Traveler</p>
+                      <h5 class="font-bold text-slate-900">Maria Rodriguez</h5>
+                      <p class="text-sm text-slate-500">Business Traveler</p>
                     </div>
                   </div>
                 </div>
@@ -857,12 +1157,14 @@
             <!-- Controls -->
             <div class="flex justify-center gap-4 mt-6">
               <button
-                class="slider-btn-prev w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors"
+                class="slider-btn-prev w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors shadow-sm"
+                aria-label="Previous testimonial"
               >
                 <i class="ph ph-caret-left"></i>
               </button>
               <button
-                class="slider-btn-next w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors"
+                class="slider-btn-next w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors shadow-sm"
+                aria-label="Next testimonial"
               >
                 <i class="ph ph-caret-right"></i>
               </button>
@@ -872,7 +1174,7 @@
       </section>
 
       <!-- 7. FAQ -->
-      <section id="faq" class="py-24 bg-[#050505]">
+      <section id="faq" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6 max-w-4xl animate-section">
           <div class="text-center mb-16">
             <h2
@@ -880,7 +1182,9 @@
             >
               Got Questions?
             </h2>
-            <h3 class="text-4xl md:text-5xl font-bold text-white">
+            <h3
+              class="split-reveal-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900"
+            >
               Frequently Asked Questions
             </h3>
           </div>
@@ -888,12 +1192,12 @@
           <div class="space-y-4">
             <!-- FAQ Item 1 -->
             <div
-              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
             >
               <button
                 class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
               >
-                <span class="font-bold text-lg text-white"
+                <span class="font-bold text-lg text-slate-900"
                   >How do I book a ride?</span
                 >
                 <i
@@ -903,7 +1207,7 @@
               <div
                 class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
               >
-                <p class="text-gray-400 pb-5">
+                <p class="text-slate-600 pb-5 leading-relaxed">
                   Booking is incredibly easy! Just click any "Book Now" floating
                   WhatsApp button on our site, send us your requirements, and
                   our team will confirm your booking instantly.
@@ -912,12 +1216,12 @@
             </div>
             <!-- FAQ Item 2 -->
             <div
-              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
             >
               <button
                 class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
               >
-                <span class="font-bold text-lg text-white"
+                <span class="font-bold text-lg text-slate-900"
                   >Are your drivers experienced?</span
                 >
                 <i
@@ -927,7 +1231,7 @@
               <div
                 class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
               >
-                <p class="text-gray-400 pb-5">
+                <p class="text-slate-600 pb-5 leading-relaxed">
                   Yes, all our drivers carry years of experience, possess
                   thorough knowledge of local routes, and undergo strict
                   background checks to ensure your complete safety and comfort.
@@ -936,12 +1240,12 @@
             </div>
             <!-- FAQ Item 3 -->
             <div
-              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
             >
               <button
                 class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
               >
-                <span class="font-bold text-lg text-white"
+                <span class="font-bold text-lg text-slate-900"
                   >What payment methods do you accept?</span
                 >
                 <i
@@ -951,7 +1255,7 @@
               <div
                 class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
               >
-                <p class="text-gray-400 pb-5">
+                <p class="text-slate-600 pb-5 leading-relaxed">
                   We accept Cash, UPI (Google Pay, PhonePe, Paytm), and major
                   Credit/Debit cards upon arrival or via advance online links.
                 </p>
@@ -959,12 +1263,12 @@
             </div>
             <!-- FAQ Item 4 -->
             <div
-              class="faq-item bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden"
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
             >
               <button
                 class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
               >
-                <span class="font-bold text-lg text-white"
+                <span class="font-bold text-lg text-slate-900"
                   >What is your cancellation policy?</span
                 >
                 <i
@@ -974,7 +1278,7 @@
               <div
                 class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
               >
-                <p class="text-gray-400 pb-5">
+                <p class="text-slate-600 pb-5 leading-relaxed">
                   We offer free cancellation up to 24 hours before your
                   scheduled trip. For later cancellations, a small
                   administrative fee may apply. Please refer to your booking
@@ -988,7 +1292,7 @@
 
       <!-- 8. CONTACT & FOOTER -->
       <footer
-        class="bg-brand-navy text-white pt-20 pb-10 border-t-4 border-brand-orange"
+        class="bg-white text-slate-800 pt-20 pb-10 border-t border-slate-200"
       >
         <div class="container mx-auto px-6 max-w-7xl animate-section">
           <div
@@ -998,44 +1302,39 @@
             <div class="lg:col-span-2">
               <a href="#" class="block mb-6"
                 ><img
-                  src="assets/images/logo.png"
-                  alt="Infiny Transit"
+                  src="assets/images/logo.webp"
+                  alt="Veyil Transit"
                   class="h-10 md:h-12 w-auto"
               /></a>
-              <p class="text-gray-400 max-w-sm mb-8">
+              <p class="text-slate-600 max-w-sm mb-8 leading-relaxed">
                 Professional taxi and touring services offering you the best and
                 safest journeys across multiple breathtaking destinations.
               </p>
+              <!-- Social Icons (Temporarily Hidden)
               <div class="flex gap-4">
                 <a
                   href="#"
-                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
-                  ><i class="ph-fill ph-facebook-logo"></i
+                  class="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
+                  ><i class="ph-fill ph-facebook-logo text-lg"></i
                 ></a>
                 <a
                   href="#"
-                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
-                  ><i class="ph-fill ph-instagram-logo"></i
+                  class="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
+                  ><i class="ph-fill ph-instagram-logo text-lg"></i
                 ></a>
                 <a
                   href="#"
-                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors"
-                  ><i class="ph-fill ph-twitter-logo"></i
+                  class="w-10 h-10 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
+                  ><i class="ph-fill ph-twitter-logo text-lg"></i
                 ></a>
               </div>
+              -->
             </div>
 
             <!-- Quick Links -->
             <div>
-              <h4 class="text-xl font-bold mb-6">Quick Links</h4>
-              <ul class="space-y-3 text-gray-400">
-                <li>
-                  <a
-                    href="#about"
-                    class="hover:text-brand-orange transition-colors"
-                    >About Us</a
-                  >
-                </li>
+              <h4 class="text-xl font-bold mb-6 text-slate-900">Quick Links</h4>
+              <ul class="space-y-3 text-slate-600">
                 <li>
                   <a
                     href="#vehicles"
@@ -1045,9 +1344,23 @@
                 </li>
                 <li>
                   <a
+                    href="package.html"
+                    class="hover:text-brand-orange transition-colors font-medium text-brand-orange"
+                    >7 Days Kerala Package</a
+                  >
+                </li>
+                <li>
+                  <a
                     href="#destinations"
                     class="hover:text-brand-orange transition-colors"
                     >Top Destinations</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#why-us"
+                    class="hover:text-brand-orange transition-colors"
+                    >Why Choose Us</a
                   >
                 </li>
                 <li>
@@ -1062,8 +1375,8 @@
 
             <!-- Contact Info -->
             <div>
-              <h4 class="text-xl font-bold mb-6">Contact Us</h4>
-              <ul class="space-y-4 text-gray-400">
+              <h4 class="text-xl font-bold mb-6 text-slate-900">Contact Us</h4>
+              <ul class="space-y-4 text-slate-600">
                 <li>
                   <a
                     href="tel:7994334254"
@@ -1077,20 +1390,31 @@
                 </li>
                 <li>
                   <a
-                    href="mailto:infinytransit@gmail.com"
+                    href="tel:9945217127"
+                    class="flex items-center gap-3 hover:text-brand-orange transition-colors"
+                  >
+                    <i
+                      class="ph-fill ph-phone-call text-xl text-brand-orange"
+                    ></i>
+                    <span>+91 99452 17127</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:veyiltransit@gmail.com"
                     class="flex items-center gap-3 hover:text-brand-orange transition-colors"
                   >
                     <i
                       class="ph-fill ph-envelope-simple text-xl text-brand-orange"
                     ></i>
-                    <span>infinytransit@gmail.com</span>
+                    <span>veyiltransit@gmail.com</span>
                   </a>
                 </li>
               </ul>
               <a
                 href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
                 target="_blank"
-                class="mt-8 inline-block bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 w-full text-center"
+                class="mt-8 inline-block bg-brand-orange hover:bg-brand-orangeHover text-white px-6 py-3.5 rounded-xl font-bold transition-transform hover:scale-105 w-full text-center shadow-lg shadow-orange-500/20"
               >
                 Book via WhatsApp
               </a>
@@ -1098,9 +1422,9 @@
           </div>
 
           <div
-            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+            class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500"
           >
-            <p>&copy; 2026 Infiny Transit. All rights reserved.</p>
+            <p>&copy; 2026 Veyil Transit. All rights reserved.</p>
             <div class="flex gap-4 mt-4 md:mt-0">
               <a href="#" class="hover:text-brand-orange">Privacy Policy</a>
               <a href="#" class="hover:text-brand-orange">Terms of Service</a>
@@ -1110,21 +1434,33 @@
       </footer>
     </div>
 
-    <!-- 10. FIXED WHATSAPP BUTTON -->
-    <a
-      href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transform transition-transform hover:scale-110"
-      aria-label="Book on WhatsApp"
-    >
-      <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
-    </a>
+    <!-- FLOATING ACTION BUTTONS (Back to Top & WhatsApp) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+      <!-- Back to Top Button -->
+      <button
+        id="backToTopBtn"
+        class="w-12 h-12 rounded-full bg-slate-900/90 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none translate-y-3 aspect-square focus:outline-none"
+        aria-label="Back to top"
+      >
+        <i class="ph-bold ph-arrow-up text-xl"></i>
+      </button>
+
+      <!-- Fixed WhatsApp Button (Full Round Circle) -->
+      <a
+        href="https://wa.me/917994334254?text=Hi%20I%20would%20like%20to%20book%20a%20trip"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center transform transition-all duration-300 hover:scale-110 aspect-square"
+        aria-label="Book on WhatsApp"
+      >
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+      </a>
+    </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

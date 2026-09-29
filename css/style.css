@@ -1,10 +1,587 @@
-/* Base Overrides */
+/*
+ * Veyil Transit visual system
+ * The palette is sampled from the travel mark: dependable navy, energetic
+ * orange and a soft mineral background that keeps long itinerary pages calm.
+ */
+:root {
+  --brand-navy: #07284f;
+  --brand-navy-deep: #031a35;
+  --brand-navy-soft: #103a68;
+  --brand-orange: #f47a20;
+  --brand-orange-dark: #d95f0d;
+  --brand-orange-pale: #fff1e6;
+  --surface: #ffffff;
+  --surface-soft: #f5f7fa;
+  --surface-warm: #fbfaf8;
+  --ink: #10233a;
+  --muted: #5f6f81;
+  --line: #dfe6ee;
+  --shadow-sm: 0 8px 24px rgba(7, 40, 79, 0.07);
+  --shadow-md: 0 20px 55px rgba(7, 40, 79, 0.12);
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
 }
 
 body {
   overflow-x: hidden;
+  color: var(--ink);
+  background: var(--surface);
+  font-family: "Manrope", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  color: #fff;
+  background: var(--brand-orange);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(244, 122, 32, 0.42);
+  outline-offset: 3px;
+}
+
+/* Brand colour corrections for the utility-driven markup */
+.text-brand-orange { color: var(--brand-orange) !important; }
+.bg-brand-orange { background-color: var(--brand-orange) !important; }
+.hover\:bg-brand-orange:hover { background-color: var(--brand-orange) !important; }
+.hover\:bg-brand-orangeHover:hover { background-color: var(--brand-orange-dark) !important; }
+.border-brand-orange { border-color: var(--brand-orange) !important; }
+.bg-brand-navy { background-color: var(--brand-navy) !important; }
+.bg-brand-lightNavy { background-color: var(--brand-navy-soft) !important; }
+.hover\:bg-brand-navy:hover { background-color: var(--brand-navy) !important; }
+.hover\:border-brand-navy:hover { border-color: var(--brand-navy) !important; }
+.group:hover .group-hover\:text-brand-navy { color: var(--brand-navy) !important; }
+.group:hover .group-hover\:bg-brand-orange { background-color: var(--brand-orange) !important; }
+.group:hover .group-hover\:text-white { color: #ffffff !important; }
+.group:hover .group-hover\:border-brand-orange { border-color: var(--brand-orange) !important; }
+
+/* Navigation */
+#navbarWrapper {
+  top: 1rem;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+#navbar {
+  max-width: 1180px;
+  min-height: 70px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(7, 40, 79, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 45px rgba(3, 26, 53, 0.1);
+}
+
+#navbar img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+
+#navbar .hidden.md\:flex > a:not(.bg-brand-orange) {
+  position: relative;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+#navbar .hidden.md\:flex > a:not(.bg-brand-orange)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -0.45rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand-orange);
+  transition: right 180ms ease;
+}
+
+#navbar .hidden.md\:flex > a:not(.bg-brand-orange):hover::after {
+  right: 0;
+}
+
+#navbar a.bg-brand-orange {
+  border-radius: 11px;
+  box-shadow: 0 10px 24px rgba(244, 122, 32, 0.25);
+}
+
+#mobileMenu {
+  border-color: rgba(7, 40, 79, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 20px 45px rgba(7, 40, 79, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px) scale(0.97);
+  transform-origin: top center;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.28s ease;
+}
+
+#mobileMenu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+#mobileMenuBtn {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#mobileMenuBtn:active {
+  transform: scale(0.92);
+}
+
+#mobileMenuBtn i {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#mobileMenuBtn.is-active i {
+  transform: rotate(90deg);
+}
+
+/* Fleet Carousel (Responsive Only) */
+@media (max-width: 1023px) {
+  .vehicles-swiper {
+    overflow: hidden !important;
+    padding: 0.75rem 0.25rem 1.25rem !important;
+  }
+  .vehicles-swiper .swiper-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+  .vehicles-swiper .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vehicles-swiper {
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .vehicles-swiper .swiper-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  .vehicles-swiper .swiper-slide {
+    width: auto !important;
+    margin-right: 0 !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+}
+
+.vehicles-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cbd5e1;
+  opacity: 1;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.vehicles-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  background: var(--brand-orange) !important;
+}
+
+/* Home hero */
+.site-home .hero {
+  min-height: 650px;
+  padding-bottom: clamp(4.5rem, 9vh, 7rem);
+}
+
+@media (max-width: 640px) {
+  .hero-split-title {
+    font-size: clamp(1.85rem, 7.2vw, 2.35rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em !important;
+  }
+
+  .split-reveal-title,
+  main section:not(:first-child) h2,
+  .site-home section h3.split-reveal-title,
+  .site-package section h2 {
+    font-size: clamp(1.38rem, 5.6vw, 1.8rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+.split-reveal-title .split-word-wrapper,
+.hero-split-title .split-word-wrapper {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.split-reveal-title .split-char-mask,
+.hero-split-title .split-char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.split-reveal-title .split-char,
+.hero-split-title .split-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.site-home .hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 26, 53, 0.84) 0%, rgba(3, 26, 53, 0.48) 48%, rgba(3, 26, 53, 0.12) 78%),
+    linear-gradient(0deg, rgba(3, 26, 53, 0.5), transparent 58%);
+}
+
+.site-home .hero-content {
+  max-width: 900px;
+}
+
+.site-home .hero-content > span {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #ffd5b6 !important;
+  background: rgba(3, 26, 53, 0.38);
+  backdrop-filter: blur(10px);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+.site-home .hero h1 {
+  max-width: 880px;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  text-shadow: 0 12px 42px rgba(0, 0, 0, 0.2);
+}
+
+.site-home .hero p {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+}
+
+.hero-btn-primary,
+.hero-btn-secondary {
+  min-height: 54px;
+  border-radius: 13px !important;
+  box-shadow: none !important;
+}
+
+.hero-btn-primary {
+  box-shadow: 0 14px 30px rgba(244, 122, 32, 0.28) !important;
+}
+
+.hero-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.hero-assurances span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.hero-assurances i {
+  color: #ff9b52;
+  font-size: 1.05rem;
+}
+
+/* Shared editorial rhythm */
+.site-home section:not(.hero),
+.site-package main > section {
+  position: relative;
+}
+
+.site-home section:not(.hero) > .container,
+.site-package main > section > .container,
+footer > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.site-home section:not(.hero) h2,
+.site-home section:not(.hero) h3,
+.site-package main section:not(:first-child) h2,
+.site-package main section:not(:first-child) h3 {
+  color: var(--brand-navy-deep) !important;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.site-home section:not(.hero) h2 + h3,
+.site-home section:not(.hero) span + h3,
+.site-package main span + h2 {
+  line-height: 1.08;
+}
+
+.site-home section.bg-slate-50,
+.site-package main section.bg-slate-50 {
+  background-color: var(--surface-soft) !important;
+}
+
+.site-home section.bg-white,
+.site-package main section.bg-white {
+  background-color: var(--surface) !important;
+}
+
+.site-home section.border-slate-200,
+.site-package section.border-slate-200,
+footer.border-slate-200 {
+  border-color: var(--line) !important;
+}
+
+/* Add quiet brand texture without competing with content */
+#why-us::before,
+#destinations::before,
+#itinerary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  background-image: radial-gradient(rgba(7, 40, 79, 0.09) 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, black, transparent 42%);
+}
+
+/* Cards: one precise, premium system across home and package pages */
+.vehicle-card,
+.destination-card,
+.package-card,
+.review-slide,
+.faq-item,
+#why-us .grid > div,
+.site-home section .grid > div[class*="shadow"],
+.site-package main div[class*="rounded-3xl"][class*="border"] {
+  border-color: rgba(7, 40, 79, 0.11) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.vehicle-card,
+.package-card,
+.review-slide,
+.faq-item,
+#why-us .grid > div,
+.site-home section .grid > div[class*="shadow"],
+.site-package main div[class*="rounded-3xl"][class*="border"] {
+  border-radius: 20px !important;
+}
+
+.vehicle-card,
+.package-card,
+#why-us .grid > div,
+.site-package main div[class*="rounded-3xl"][class*="border"] {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.vehicle-card:hover,
+.package-card:hover,
+#why-us .grid > div:hover,
+.site-package main div[class*="rounded-3xl"][class*="border"]:hover {
+  transform: translateY(-5px);
+  border-color: rgba(244, 122, 32, 0.42) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.vehicle-card > div:first-child {
+  background:
+    linear-gradient(145deg, #f7f9fb, #e9eff5) !important;
+}
+
+.vehicle-card img {
+  mix-blend-mode: multiply;
+}
+
+.vehicle-card a,
+.site-package #vehicles a {
+  border-radius: 10px !important;
+  background: var(--brand-navy) !important;
+}
+
+.vehicle-card a:hover,
+.site-package #vehicles a:hover {
+  background: var(--brand-orange) !important;
+}
+
+.destination-card {
+  border-radius: 22px !important;
+  outline: 1px solid rgba(7, 40, 79, 0.08);
+  outline-offset: -1px;
+}
+
+.package-card {
+  overflow: hidden;
+}
+
+.package-card:not(.bg-gradient-to-br)::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 1.35rem;
+  border-radius: 999px;
+  background: var(--brand-orange);
+}
+
+.package-card:not(.bg-gradient-to-br) > i:first-child {
+  display: none !important;
+}
+
+.package-card.bg-gradient-to-br {
+  background: linear-gradient(145deg, var(--brand-navy) 0%, var(--brand-navy-soft) 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 20px 46px rgba(7, 40, 79, 0.2) !important;
+}
+
+.review-slide {
+  background: var(--surface-warm) !important;
+}
+
+.review-slide p.italic {
+  font-style: normal;
+}
+
+.faq-item {
+  box-shadow: 0 3px 14px rgba(7, 40, 79, 0.05) !important;
+}
+
+.faq-item.active {
+  border-color: var(--brand-orange) !important;
+  box-shadow: 0 12px 30px rgba(244, 122, 32, 0.12) !important;
+}
+
+/* Package page */
+.site-package main {
+  padding-top: 0 !important;
+}
+
+.site-package main > section:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-package main > section:first-child h1 {
+  color: #ffffff !important;
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem) !important;
+  line-height: 1.05 !important;
+}
+
+.site-package main > section:first-child h1 span {
+  color: var(--brand-orange) !important;
+}
+
+.site-package #itinerary > .container > .space-y-8 {
+  position: relative;
+}
+
+.site-package #itinerary > .container > .space-y-8::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 2rem;
+  width: 2px;
+  background: linear-gradient(var(--brand-orange), rgba(244, 122, 32, 0.08));
+}
+
+.site-package #itinerary > .container > .space-y-8 > div {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.site-package section.bg-gradient-to-br {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(244, 122, 32, 0.22), transparent 27%),
+    linear-gradient(135deg, var(--brand-navy-deep), var(--brand-navy-soft)) !important;
+}
+
+.site-package section.bg-gradient-to-br h2 {
+  color: #fff !important;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.76) !important;
+  border-top: 0 !important;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(244, 122, 32, 0.12), transparent 26%),
+    var(--brand-navy-deep) !important;
+}
+
+footer h4,
+footer .text-slate-900,
+footer .text-slate-800 {
+  color: #fff !important;
+}
+
+footer .text-slate-600,
+footer .text-slate-500,
+footer li,
+footer p {
+  color: rgba(255, 255, 255, 0.64) !important;
+}
+
+footer img {
+  padding: 0.45rem;
+  border-radius: 10px;
+  background: #fff;
+}
+
+footer .bg-slate-100 {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+}
+
+footer .border-slate-200 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+footer a:hover {
+  color: #ff9b52 !important;
+}
+
+#backToTopBtn {
+  background: var(--brand-navy) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Animations */
@@ -36,11 +613,13 @@ body {
 .metric-item {
   transition:
     transform 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .metric-item:hover {
   transform: translateY(-5px);
-  border-color: rgba(249, 115, 22, 0.4);
+  border-color: rgba(244, 122, 32, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
 }
 
 /* Accordion Specifics */
@@ -58,10 +637,251 @@ body {
   transform: rotate(45deg);
 }
 
-.faq-item.active {
-  border-color: #f97316;
+.mobile-link {
+  color: #1e293b;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  width: 100%;
+  text-align: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: color 0.2s ease;
 }
 
-.mobile-link {
-  @apply text-white text-xl font-medium tracking-wide w-full text-center py-4 border-b border-white/10 hover:text-brand-orange transition-colors;
+.mobile-link:hover { color: var(--brand-orange); }
+
+@media (max-width: 767px) {
+  #navbarWrapper {
+    top: 0.75rem;
+    padding-inline: 0.75rem;
+  }
+
+  #navbar {
+    min-height: 62px;
+    padding: 0.55rem 0.85rem;
+    border-radius: 15px;
+  }
+
+  #navbar img {
+    height: 39px;
+  }
+
+  .site-home .hero {
+    min-height: 700px;
+    padding-bottom: 3.5rem;
+  }
+
+  .site-home .hero-bg::after {
+    background:
+      linear-gradient(0deg, rgba(3, 26, 53, 0.92) 0%, rgba(3, 26, 53, 0.52) 62%, rgba(3, 26, 53, 0.2) 100%);
+  }
+
+  .site-home .hero h1 {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+  }
+
+  .hero-assurances {
+    gap: 0.7rem 1.1rem;
+  }
+
+  .site-home section:not(.hero) {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  .site-package main {
+    padding-top: 0 !important;
+  }
+
+  .site-package #itinerary > .container > .space-y-8::before {
+    display: none;
+  }
+
+  .site-package #itinerary > .container > .space-y-8 > div {
+    margin-left: 0;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Swiper Custom Refinements */
+.highlightsSwiper .swiper-slide {
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.highlightsSwiper {
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* =========================================
+   ITINERARY INTERACTIVE ROAD MAP STYLES
+   ========================================= */
+.roadmap-wrapper {
+  position: relative;
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .roadmap-wrapper {
+    padding-left: 4.5rem;
+  }
+}
+
+/* Vertical Highway Road Track */
+.roadmap-highway-track {
+  position: absolute;
+  left: 1.4rem;
+  top: 2rem;
+  bottom: 3.5rem;
+  width: 14px;
+  background: #cbd5e1;
+  border-radius: 9999px;
+  z-index: 1;
+  display: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 768px) {
+  .roadmap-highway-track {
+    display: block;
+  }
+}
+
+/* Road Centerline Dashes */
+.roadmap-highway-track::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #ffffff 0px,
+    #ffffff 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.95;
+  z-index: 2;
+}
+
+/* Active Glowing Highway Progress */
+.roadmap-highway-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #f47a20 0%, #ea580c 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 16px rgba(244, 122, 32, 0.7);
+  z-index: 3;
+  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating GPS Taxi Cab Indicator */
+.roadmap-taxi-marker {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  background: #07284f;
+  border: 3px solid #f47a20;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 6px 20px rgba(244, 122, 32, 0.5), 0 0 0 8px rgba(244, 122, 32, 0.2);
+  z-index: 10;
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+  pointer-events: none;
+}
+
+.roadmap-taxi-marker i {
+  animation: taxi-wobble 2s ease-in-out infinite alternate;
+}
+
+@keyframes taxi-wobble {
+  0% { transform: translateY(-1px) rotate(-3deg); }
+  100% { transform: translateY(1px) rotate(3deg); }
+}
+
+/* Milestone Node Stop on Highway */
+.roadmap-stop-node {
+  position: absolute;
+  left: -4.5rem;
+  top: 1.75rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+  .roadmap-stop-node {
+    display: flex;
+  }
+}
+
+.roadmap-stop-pin {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #cbd5e1;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.roadmap-card.active .roadmap-stop-pin,
+.roadmap-card:hover .roadmap-stop-pin {
+  background: #f47a20;
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 6px rgba(244, 122, 32, 0.25), 0 8px 24px rgba(244, 122, 32, 0.45);
+}
+
+/* Road Map Card Interactivity & Depth */
+.roadmap-card {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-4px) scale-[1.008];
+  border-color: rgba(244, 122, 32, 0.5) !important;
+  box-shadow: 0 20px 40px rgba(7, 40, 79, 0.12) !important;
+}
+
+.roadmap-card.active {
+  border-color: rgba(244, 122, 32, 0.4) !important;
+}
+
+
