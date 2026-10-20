@@ -884,4 +884,507 @@ footer a:hover {
   border-color: rgba(244, 122, 32, 0.4) !important;
 }
 
+/* ==========================================================================
+   EXECUTIVE MIDNIGHT THEME (DARK MODE DEMO)
+   Palette: Midnight Obsidian Base (#070b14) + Slate Surface (#111a2e) 
+            + Radiant Amber Accent (#f47a20 / #f97316) + Crisp Titanium Type
+   ========================================================================== */
+
+/* Smooth Theme Switching Transition */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease !important;
+  transition-delay: 0ms !important;
+}
+
+html.dark {
+  color-scheme: dark;
+  --brand-navy: #ffffff;
+  --brand-navy-deep: #ffffff;
+  --brand-navy-soft: #cbd5e1;
+  --surface: #070b14;
+  --surface-soft: #090e1c;
+  --surface-warm: #111a2e;
+  --ink: #ffffff;
+  --muted: #cbd5e1;
+  --line: rgba(255, 255, 255, 0.08);
+}
+
+/* Root & Base Canvas */
+html.dark,
+html.dark body {
+  background-color: #070b14 !important;
+  color: #94a3b8 !important;
+}
+
+/* Global Dark Selection */
+html.dark ::selection {
+  background: #f47a20 !important;
+  color: #070b14 !important;
+}
+
+/* Page Wrappers & Main Surfaces */
+html.dark .site-home,
+html.dark .site-package,
+html.dark main,
+html.dark .bg-white,
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: #070b14 !important;
+}
+
+/* Section Contrast Rhythm */
+html.dark #why-us,
+html.dark #destinations,
+html.dark #faq {
+  background-color: #090e1c !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark #vehicles,
+html.dark section.bg-white {
+  background-color: #070b14 !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Sticky Hero Container in Home */
+html.dark .sticky.top-0.z-0.bg-white {
+  background-color: #070b14 !important;
+}
+
+/* Main Content Floating Container */
+html.dark .relative.z-10.overflow-hidden.bg-white {
+  background-color: #070b14 !important;
+  box-shadow: 0 -25px 50px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Dividers & Borders */
+html.dark .border-slate-200,
+html.dark .border-slate-100,
+html.dark .border-slate-300,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-200\/80 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ==========================================================================
+   CARDS & ELEVATED SURFACES (Slate Dark #111a2e with subtle borders)
+   ========================================================================== */
+
+html.dark #why-us .grid > div,
+html.dark .vehicle-card,
+html.dark .package-card:not(.bg-gradient-to-br),
+html.dark .review-slide,
+html.dark .faq-item,
+html.dark .roadmap-card,
+html.dark .grid-cols-1.md\:grid-cols-3 > div {
+  background-color: #111a2e !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Card Hover States */
+html.dark #why-us .grid > div:hover,
+html.dark .vehicle-card:hover,
+html.dark .package-card:not(.bg-gradient-to-br):hover,
+html.dark .roadmap-card:hover {
+  border-color: rgba(244, 122, 32, 0.45) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(244, 122, 32, 0.1) !important;
+}
+
+/* Why-us specific card hover background */
+html.dark #why-us .grid > div:hover {
+  background-color: #0b1f3a !important;
+}
+
+/* Soft Badges inside Cards */
+html.dark .bg-orange-100 {
+  background-color: rgba(244, 122, 32, 0.15) !important;
+  color: #f47a20 !important;
+}
+
+html.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Vehicle card specific surfaces */
+html.dark .vehicle-card .bg-slate-100 {
+  background-color: #0c1424 !important;
+}
+
+html.dark .vehicle-card ul li {
+  color: #cbd5e1 !important;
+}
+
+html.dark .vehicle-card a.bg-slate-900 {
+  background-color: #0b1426 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+}
+
+html.dark .vehicle-card a.bg-slate-900:hover {
+  background-color: #f47a20 !important;
+  border-color: #f47a20 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(244, 122, 32, 0.35) !important;
+}
+
+/* 3-Step Booking Numbers */
+html.dark .grid-cols-1.md\:grid-cols-3 .text-orange-200 {
+  color: rgba(244, 122, 32, 0.35) !important;
+}
+
+/* ==========================================================================
+   ROADMAP & PACKAGE HIGHLIGHTS (Package page)
+   ========================================================================== */
+
+html.dark .roadmap-stop-pin {
+  background: #0d1527 !important;
+  border-color: #334155 !important;
+  color: #94a3b8 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .roadmap-card.active .roadmap-stop-pin,
+html.dark .roadmap-card:hover .roadmap-stop-pin {
+  background: #f47a20 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+html.dark .swiper-prev-btn,
+html.dark .swiper-next-btn {
+  background-color: #111a2e !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .swiper-prev-btn:hover,
+html.dark .swiper-next-btn:hover {
+  background-color: #f47a20 !important;
+  border-color: #f47a20 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & HIGH VISIBILITY IN DARK MODE (Crisp White & Luminous Silver)
+   ========================================================================== */
+
+/* All Headings & Titles across all sections and pages */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark .site-home section h1,
+html.dark .site-home section h2,
+html.dark .site-home section h3,
+html.dark .site-home section h4,
+html.dark .site-home section h5,
+html.dark .site-home section:not(.hero) h2,
+html.dark .site-home section:not(.hero) h3,
+html.dark .site-home section:not(.hero) h4,
+html.dark .site-package main section h1,
+html.dark .site-package main section h2,
+html.dark .site-package main section h3,
+html.dark .site-package main section h4,
+html.dark .site-package main section:not(:first-child) h2,
+html.dark .site-package main section:not(:first-child) h3,
+html.dark .split-reveal-title,
+html.dark .split-char,
+html.dark .split-word-wrapper,
+html.dark .hero-split-title,
+html.dark .text-slate-900,
+html.dark .text-slate-800 {
+  color: #ffffff !important;
+}
+
+/* Subheadings, Section Intro Paragraphs & Body Descriptions */
+html.dark p,
+html.dark .site-home section p,
+html.dark .site-package section p,
+html.dark .text-slate-700,
+html.dark .text-slate-600,
+html.dark .text-slate-600 * {
+  color: #cbd5e1 !important;
+}
+
+/* Meta, Labels & Secondary Text */
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Eyebrow & Brand Orange Highlights */
+html.dark .text-brand-orange,
+html.dark .site-home section span.text-brand-orange,
+html.dark .site-package section span.text-brand-orange {
+  color: #f47a20 !important;
+}
+
+/* Card Headings & Content */
+html.dark #why-us .grid h4,
+html.dark .vehicle-card h4,
+html.dark .package-card h4,
+html.dark .roadmap-card h3,
+html.dark .roadmap-card h4,
+html.dark .destination-card h4,
+html.dark .faq-btn span,
+html.dark .faq-item h4,
+html.dark .review-slide h5 {
+  color: #ffffff !important;
+}
+
+html.dark #why-us .grid p,
+html.dark .vehicle-card p,
+html.dark .package-card p,
+html.dark .roadmap-card p,
+html.dark .review-slide p,
+html.dark .faq-content p {
+  color: #cbd5e1 !important;
+}
+
+/* Lists and specifications */
+html.dark .vehicle-card ul li,
+html.dark .roadmap-card ul li,
+html.dark .roadmap-card .grid div span,
+html.dark .package-card ul li {
+  color: #e2e8f0 !important;
+}
+
+/* Fix Vehicle Images Blend Mode */
+html.dark .vehicle-card img {
+  mix-blend-mode: normal !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)) !important;
+}
+
+/* 3-Step Easy Booking */
+html.dark .grid-cols-1.md\:grid-cols-3 h4 {
+  color: #ffffff !important;
+}
+html.dark .grid-cols-1.md\:grid-cols-3 p {
+  color: #cbd5e1 !important;
+}
+html.dark .grid-cols-1.md\:grid-cols-3 span.text-4xl {
+  color: #f47a20 !important;
+  opacity: 0.85;
+}
+
+/* Destination Card & Highlight overlays */
+html.dark .destination-card {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Hero Secondary CTA */
+html.dark .hero-btn-secondary {
+  background-color: rgba(17, 26, 46, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+html.dark .hero-btn-secondary:hover {
+  background-color: rgba(26, 38, 66, 0.95) !important;
+}
+
+/* Secondary Button in Package Banner */
+html.dark a.bg-white.text-slate-900 {
+  background-color: rgba(17, 26, 46, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+html.dark a.bg-white.text-slate-900:hover {
+  background-color: rgba(26, 38, 66, 0.95) !important;
+}
+
+/* ==========================================================================
+   NAVBAR & MOBILE MENU
+   ========================================================================== */
+
+html.dark #navbar {
+  background: rgba(10, 16, 31, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark #navbar a.text-slate-700,
+html.dark #navbar .hidden.md\:flex > a:not(.bg-brand-orange) {
+  color: #f1f5f9 !important;
+}
+
+html.dark #navbar a.text-slate-700:hover,
+html.dark #navbar .hidden.md\:flex > a:not(.bg-brand-orange):hover {
+  color: #f47a20 !important;
+}
+
+html.dark #mobileMenuBtn {
+  color: #ffffff !important;
+}
+
+html.dark #mobileMenuBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark #mobileMenu {
+  background: rgba(10, 16, 31, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8) !important;
+}
+
+html.dark #mobileMenu a.mobile-link {
+  color: #f1f5f9 !important;
+}
+
+html.dark #mobileMenu a.mobile-link:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #f47a20 !important;
+}
+
+/* Logo Emblem backing for crisp contrast */
+html.dark #navbar a img,
+html.dark footer a img {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   TESTIMONIALS & FAQ
+   ========================================================================== */
+
+html.dark .review-slide {
+  background-color: #111a2e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .review-slide p {
+  color: #cbd5e1 !important;
+}
+html.dark .review-slide p.italic {
+  color: #f1f5f9 !important;
+}
+html.dark .review-slide h5 {
+  color: #ffffff !important;
+}
+html.dark .review-slide p.text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .slider-btn-prev,
+html.dark .slider-btn-next {
+  background-color: #111a2e !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .slider-btn-prev:hover,
+html.dark .slider-btn-next:hover {
+  background-color: #f47a20 !important;
+  border-color: #f47a20 !important;
+  color: #ffffff !important;
+}
+
+/* FAQ Accordion Items */
+html.dark .faq-item {
+  background-color: #111a2e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .faq-item.active {
+  border-color: rgba(244, 122, 32, 0.4) !important;
+}
+
+html.dark .faq-btn,
+html.dark .faq-btn span,
+html.dark .faq-item button,
+html.dark .faq-item button span {
+  color: #ffffff !important;
+}
+
+html.dark .faq-content p {
+  color: #cbd5e1 !important;
+}
+
+/* Background Texture Dots in Dark */
+html.dark #why-us::before,
+html.dark #destinations::before,
+html.dark #itinerary::before {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 0.8px, transparent 0.8px) !important;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+html.dark footer {
+  background-color: #04070e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark footer h4 {
+  color: #ffffff !important;
+}
+
+html.dark footer p,
+html.dark footer li,
+html.dark footer a,
+html.dark footer .text-slate-600,
+html.dark footer .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+html.dark footer a:hover {
+  color: #f47a20 !important;
+}
+
+html.dark footer .border-t,
+html.dark footer .border-t p,
+html.dark footer .border-t a {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   FLOATING THEME TOGGLE BUTTON
+   ========================================================================== */
+
+#themeToggleBtn {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.3s ease;
+}
+
+#themeToggleBtn:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+#themeToggleBtn:active {
+  transform: scale(0.96);
+}
+
+html.dark #themeToggleBtn {
+  background: rgba(17, 26, 46, 0.95);
+  border-color: rgba(244, 122, 32, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(244, 122, 32, 0.15);
+}
+
+html:not(.dark) #themeToggleBtn {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+
+
 

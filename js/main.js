@@ -240,6 +240,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // 3.1 Hero Banner Automatic Fade Carousel
+  const heroBannerEl = document.querySelector(".heroBannerSwiper");
+  if (heroBannerEl && typeof Swiper !== "undefined") {
+    new Swiper(".heroBannerSwiper", {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      loop: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: false,
+      },
+      speed: 1200,
+      allowTouchMove: false,
+    });
+  }
+
   // 4. Vehicles Carousel Initialization (Mobile/Tablet Responsive Only)
   let vehiclesSwiper = null;
 
@@ -402,6 +420,60 @@ document.addEventListener("DOMContentLoaded", () => {
         top: 0,
         behavior: "smooth",
       });
+    });
+  }
+
+  // 8. Interactive Dark Mode Demo Switcher Logic
+  const themeToggleBtn = document.getElementById("themeToggleBtn");
+  const themeToggleIcon = document.getElementById("themeToggleIcon");
+  const themeToggleText = document.getElementById("themeToggleText");
+
+  const updateToggleUI = (isDark) => {
+    if (!themeToggleBtn) return;
+    if (isDark) {
+      if (themeToggleIcon) {
+        themeToggleIcon.innerHTML = '<i class="ph-fill ph-moon-stars text-amber-400 text-base"></i>';
+      }
+      if (themeToggleText) {
+        themeToggleText.textContent = "Executive Dark";
+      }
+      themeToggleBtn.setAttribute("aria-pressed", "true");
+      themeToggleBtn.setAttribute("title", "Active: Executive Dark Theme. Click to preview Classic Light Theme.");
+    } else {
+      if (themeToggleIcon) {
+        themeToggleIcon.innerHTML = '<i class="ph-bold ph-sun text-amber-500 text-base"></i>';
+      }
+      if (themeToggleText) {
+        themeToggleText.textContent = "Classic Light";
+      }
+      themeToggleBtn.setAttribute("aria-pressed", "false");
+      themeToggleBtn.setAttribute("title", "Active: Classic Light Theme. Click to preview Executive Dark Theme.");
+    }
+  };
+
+  // Sync state initially
+  const isInitiallyDark = document.documentElement.classList.contains("dark");
+  updateToggleUI(isInitiallyDark);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      // Temporary transition class for silky smooth fade
+      document.documentElement.classList.add("theme-transition");
+
+      const willBeDark = !document.documentElement.classList.contains("dark");
+      if (willBeDark) {
+        document.documentElement.classList.add("dark");
+        try { localStorage.setItem("veyil_theme", "dark"); } catch (e) {}
+      } else {
+        document.documentElement.classList.remove("dark");
+        try { localStorage.setItem("veyil_theme", "light"); } catch (e) {}
+      }
+
+      updateToggleUI(willBeDark);
+
+      setTimeout(() => {
+        document.documentElement.classList.remove("theme-transition");
+      }, 350);
     });
   }
 

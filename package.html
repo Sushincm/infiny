@@ -22,27 +22,45 @@
       rel="stylesheet"
     />
 
+    <!-- Theme Initialization (Defaults to Executive Midnight Dark for Demo) -->
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("veyil_theme");
+          if (savedTheme === "light") {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      if (window.tailwind) tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Manrope", "sans-serif"],
-              inter: ["Manrope", "sans-serif"],
-            },
-            colors: {
-              brand: {
-                navy: "#07284f",
-                lightNavy: "#eef3f8",
-                orange: "#f47a20",
-                orangeHover: "#d95f0d",
+      if (window.tailwind)
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Manrope", "sans-serif"],
+                inter: ["Manrope", "sans-serif"],
+              },
+              colors: {
+                brand: {
+                  navy: "#07284f",
+                  lightNavy: "#eef3f8",
+                  orange: "#f47a20",
+                  orangeHover: "#d95f0d",
+                },
               },
             },
           },
-        },
-      };
+        };
     </script>
 
     <!-- Phosphor Icons -->
@@ -319,8 +337,8 @@
               <div class="swiper-slide">
                 <div class="relative w-full h-80 sm:h-84 rounded-3xl overflow-hidden group shadow-md hover:shadow-xl border border-slate-200/80 hover:border-brand-orange/60 hover:-translate-y-1 transition-all duration-300">
                   <img
-                    src="assets/images/day1-waterfalls.webp"
-                    alt="Cheeyappara Waterfalls"
+                    src="assets/images/Cheeyappara &amp; Valara.webp"
+                    alt="Cheeyappara &amp; Valara Waterfalls"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -331,8 +349,8 @@
                     </div>
                   </div>
                   <div class="absolute bottom-0 inset-x-0 p-5 z-10 text-left">
-                    <span class="text-xs uppercase font-extrabold tracking-wider text-orange-300 block mb-1">Cheeyappara &amp; Valara</span>
-                    <h4 class="text-xl font-extrabold text-white group-hover:text-orange-200 transition-colors">Cascading Falls</h4>
+                    <span class="text-xs uppercase font-extrabold tracking-wider text-orange-300 block mb-1">Cascading Waterfalls</span>
+                    <h4 class="text-xl font-extrabold text-white group-hover:text-orange-200 transition-colors">Cheeyappara &amp; Valara</h4>
                   </div>
                 </div>
               </div>
@@ -1157,6 +1175,19 @@
         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
       </a>
     </div>
+
+    <!-- INTERACTIVE DARK MODE DEMO SWITCHER -->
+    <button
+      id="themeToggleBtn"
+      class="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full text-white backdrop-blur-md cursor-pointer select-none border border-white/20 transition-all active:scale-95 group"
+      aria-label="Toggle Dark Mode Demo"
+      title="Toggle between Executive Midnight Dark Mode and Classic Light Mode"
+    >
+      <span id="themeToggleIcon" class="flex items-center text-amber-400 group-hover:scale-110 transition-transform">
+        <i class="ph-fill ph-moon-stars text-base"></i>
+      </span>
+      <span id="themeToggleText" class="text-xs font-bold tracking-wide">Executive Dark</span>
+    </button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

@@ -22,11 +22,28 @@
       rel="stylesheet"
     />
 
+    <!-- Theme Initialization (Defaults to Executive Midnight Dark for Demo) -->
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("veyil_theme");
+          if (savedTheme === "light") {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       if (window.tailwind)
         tailwind.config = {
+          darkMode: "class",
           theme: {
             extend: {
               fontFamily: {
@@ -183,30 +200,43 @@
       <section
         class="hero relative w-full h-full flex items-end justify-start pb-24 pt-20 overflow-hidden rounded-none"
       >
-        <!-- Background Video -->
+        <!-- Background Auto Fade Carousel -->
         <div class="absolute inset-0 z-0 hero-bg">
+          <div class="swiper heroBannerSwiper w-full h-full">
+            <div class="swiper-wrapper w-full h-full">
+              <!-- Slide 1 -->
+              <div class="swiper-slide w-full h-full overflow-hidden">
+                <img
+                  src="assets/images/banner-1.webp"
+                  alt="Kerala Scenic Tour"
+                  class="w-full h-full object-cover object-center scale-105"
+                />
+              </div>
+              <!-- Slide 2 -->
+              <div class="swiper-slide w-full h-full overflow-hidden">
+                <img
+                  src="assets/images/banner-2.webp"
+                  alt="Kerala Travel Destinations"
+                  class="w-full h-full object-cover object-center scale-105"
+                />
+              </div>
+              <!-- Slide 3 -->
+              <div class="swiper-slide w-full h-full overflow-hidden">
+                <img
+                  src="assets/images/banner-3.webp"
+                  alt="Kerala Taxi & Tour Service"
+                  class="w-full h-full object-cover object-center scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Dark Overlays for High Legibility (Lightened Tint) -->
           <div
-            class="absolute inset-0 bg-black/40 z-10 transition-opacity"
+            class="absolute inset-0 bg-black/20 z-10 pointer-events-none transition-opacity"
           ></div>
           <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10 h-2/3 bottom-0 mt-auto"
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent z-10 pointer-events-none h-full bottom-0"
           ></div>
-          <video
-            src="assets/videos/hero-vid.webm"
-            autoplay
-            loop
-            muted
-            playsinline
-            class="w-full h-full object-cover hidden min-[992px]:block scale-105"
-          ></video>
-          <video
-            src="assets/videos/hero-vid-responsive.webm"
-            autoplay
-            loop
-            muted
-            playsinline
-            class="w-full h-full object-cover block min-[992px]:hidden scale-105"
-          ></video>
         </div>
 
         <div
@@ -741,15 +771,16 @@
 
           <!-- Destinations Grid -->
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 relative z-20"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative z-20"
           >
             <div
               class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.webp"
-                alt="Munnar"
+                src="assets/images/munnar-hills.webp"
+                alt="Munnar Hills"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
@@ -775,10 +806,10 @@
               class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.webp"
-                alt="Alleppey"
+                src="assets/images/highlights-houseboat.webp"
+                alt="Alleppey Backwaters"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style="filter: hue-rotate(-20deg)"
+                loading="lazy"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
@@ -806,10 +837,10 @@
               class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
             >
               <img
-                src="assets/images/destination.webp"
-                alt="Thekkady"
+                src="assets/images/thekkedi-forest.webp"
+                alt="Thekkady Forest"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style="filter: hue-rotate(40deg) saturate(1.2)"
+                loading="lazy"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
@@ -825,6 +856,37 @@
                 >
                   <a
                     href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Thekkady"
+                    target="_blank"
+                    class="inline-block mt-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-sm px-5 py-2 rounded-full font-medium shadow-md transition-colors"
+                    >Explore Trip</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="destination-card group relative h-80 rounded-3xl overflow-hidden cursor-pointer shadow-md border border-slate-200/80 hover:border-brand-orange/60 hover:shadow-xl transition-all duration-300"
+            >
+              <img
+                src="assets/images/fort-kochi.webp"
+                alt="Fort Kochi Heritage"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 w-full p-6 text-left transform translate-y-4 group-hover:translate-y-0 transition-transform"
+              >
+                <h4 class="text-2xl font-bold text-white mb-2">
+                  Fort Kochi
+                </h4>
+                <div
+                  class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <a
+                    href="https://wa.me/917994334254?text=Hi%20I%20want%20to%20explore%20Fort%20Kochi"
                     target="_blank"
                     class="inline-block mt-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-sm px-5 py-2 rounded-full font-medium shadow-md transition-colors"
                     >Explore Trip</a
@@ -1456,6 +1518,19 @@
         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
       </a>
     </div>
+
+    <!-- INTERACTIVE DARK MODE DEMO SWITCHER -->
+    <button
+      id="themeToggleBtn"
+      class="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full text-white backdrop-blur-md cursor-pointer select-none border border-white/20 transition-all active:scale-95 group"
+      aria-label="Toggle Dark Mode Demo"
+      title="Toggle between Executive Midnight Dark Mode and Classic Light Mode"
+    >
+      <span id="themeToggleIcon" class="flex items-center text-amber-400 group-hover:scale-110 transition-transform">
+        <i class="ph-fill ph-moon-stars text-base"></i>
+      </span>
+      <span id="themeToggleText" class="text-xs font-bold tracking-wide">Executive Dark</span>
+    </button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
