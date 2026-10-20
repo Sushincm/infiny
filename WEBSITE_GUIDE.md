@@ -16,7 +16,7 @@
   2. Families and couples looking for reliable, stress-free private holiday transportation.
   3. Business travelers needing punctual airport transfers and corporate travel.
 * **Brand Tone & Voice:** Trustworthy, warm, professional, hospitable, transparent, and tranquil.
-* **Primary Conversion Goal:** Direct bookings and quote inquiries via WhatsApp (`+91 79943 34254`) and Direct Phone (`+91 79943 34254` / `+91 99452 17127`).
+* **Primary Conversion Goal:** Direct bookings and quote inquiries via WhatsApp (`+91 79943 34254`) and Direct Phone (`+91 79943 34254`).
 
 ---
 
@@ -223,8 +223,7 @@
 #### Component 9: Footer & Global Contacts
 * **Company Bio:** *"Professional taxi and touring services offering you the best and safest journeys across multiple breathtaking destinations."*
 * **Contact Numbers:**
-  * Phone 1: `+91 79943 34254` (`tel:7994334254`)
-  * Phone 2: `+91 99452 17127` (`tel:9945217127`)
+  * Phone: `+91 79943 34254` (`tel:7994334254`)
   * Email: `veyiltransit@gmail.com` (`mailto:veyiltransit@gmail.com`)
 * **Direct Booking CTA:** `"Book via WhatsApp"`
 * **Legal:** `© 2026 Veyil Transit. All rights reserved.` | `Privacy Policy` | `Terms of Service`

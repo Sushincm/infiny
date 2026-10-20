@@ -1,0 +1,8 @@
+﻿# Veyil Transit — robots.txt
+# https://www.veyiltransit.in
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.veyiltransit.in/sitemap.xml
