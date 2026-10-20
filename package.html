@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,20 +22,9 @@
       rel="stylesheet"
     />
 
-    <!-- Theme Initialization (Defaults to Executive Midnight Dark for Demo) -->
+    <!-- Permanent Executive Dark Theme -->
     <script>
-      (function () {
-        try {
-          const savedTheme = localStorage.getItem("veyil_theme");
-          if (savedTheme === "light") {
-            document.documentElement.classList.remove("dark");
-          } else {
-            document.documentElement.classList.add("dark");
-          }
-        } catch (e) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
+      document.documentElement.classList.add("dark");
     </script>
 
     <!-- Tailwind CSS -->
@@ -271,10 +260,10 @@
               <a
                 href="assets/images/itinery.webp"
                 download="Infiny-Kerala-7-Days-Tour-Itinerary.webp"
-                class="flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-gray-100 px-7 py-3.5 rounded-[11px] font-semibold text-base transition-transform hover:scale-105 shadow-md group"
+                class="flex items-center justify-center gap-2 bg-white text-black hover:bg-slate-100 px-7 py-3.5 rounded-[11px] font-bold text-base transition-transform hover:scale-105 shadow-md group border border-slate-200"
               >
                 <i class="ph-bold ph-download-simple text-brand-orange text-lg group-hover:translate-y-0.5 transition-transform"></i>
-                <span>Download Itinerary</span>
+                <span class="text-black">Download Itinerary</span>
               </a>
             </div>
           </div>
@@ -292,16 +281,16 @@
             <!-- Navigation controls -->
             <div class="flex items-center gap-2">
               <button
-                class="swiper-prev-btn w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-brand-orange hover:text-white hover:border-brand-orange text-slate-700 flex items-center justify-center transition-all duration-200 shadow-sm"
+                class="swiper-prev-btn w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-brand-orange hover:text-white hover:border-brand-orange text-black flex items-center justify-center transition-all duration-200 shadow-sm"
                 aria-label="Previous Highlight"
               >
-                <i class="ph-bold ph-caret-left text-lg"></i>
+                <i class="ph-bold ph-caret-left text-lg text-black"></i>
               </button>
               <button
-                class="swiper-next-btn w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-brand-orange hover:text-white hover:border-brand-orange text-slate-700 flex items-center justify-center transition-all duration-200 shadow-sm"
+                class="swiper-next-btn w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-brand-orange hover:text-white hover:border-brand-orange text-black flex items-center justify-center transition-all duration-200 shadow-sm"
                 aria-label="Next Highlight"
               >
-                <i class="ph-bold ph-caret-right text-lg"></i>
+                <i class="ph-bold ph-caret-right text-lg text-black"></i>
               </button>
             </div>
           </div>
@@ -954,10 +943,14 @@
       </section>
 
       <!-- 4. TOUR RESERVATION CTA BANNER -->
-      <section class="py-16 sm:py-24 bg-gradient-to-br from-[#051a35] via-[#07284f] to-[#0a3568] text-white relative overflow-hidden">
+      <section
+        id="tourReservation"
+        class="tour-reservation-cta py-16 sm:py-24 relative overflow-hidden text-white"
+        style="background: linear-gradient(135deg, #031a35 0%, #07284f 50%, #0a3568 100%) !important; background-color: #07284f !important;"
+      >
         <!-- Radial ambient glow accents -->
-        <div class="absolute -right-16 -bottom-16 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -left-16 -top-16 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-16 -bottom-16 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-16 -top-16 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="container mx-auto px-6 max-w-5xl text-center relative z-10">
           <span class="text-xs uppercase tracking-[0.2em] text-orange-400 font-extrabold block mb-3">
@@ -976,7 +969,7 @@
             <a
               href="https://wa.me/917994334254?text=Hi%2C%20I%20am%20ready%20to%20book%20the%207%20Days%20Kerala%20Journey%20Package."
               target="_blank"
-              class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-7 py-3.5 rounded-[11px] font-semibold text-base transition-transform hover:scale-105"
+              class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-7 py-3.5 rounded-[11px] font-bold text-base transition-transform hover:scale-105 shadow-lg shadow-orange-500/25"
             >
               <i class="ph-fill ph-whatsapp-logo text-xl"></i>
               <span>Book via WhatsApp Now</span>
@@ -984,11 +977,11 @@
             </a>
             <a
               href="tel:7994334254"
-              class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-gray-100 px-7 py-3.5 rounded-[11px] font-semibold text-base transition-transform hover:scale-105"
+              class="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-black hover:bg-slate-100 px-7 py-3.5 rounded-[11px] font-bold text-base transition-transform hover:scale-105 shadow-md border border-white/20"
             >
               <i class="ph-fill ph-phone-call text-xl text-brand-orange"></i>
-              <span>Call +91 79943 34254</span>
-              <i class="ph-bold ph-arrow-up-right"></i>
+              <span class="text-black">Call +91 79943 34254</span>
+              <i class="ph-bold ph-arrow-up-right text-black"></i>
             </a>
           </div>
         </div>
@@ -1158,10 +1151,12 @@
       <!-- Back to Top Button -->
       <button
         id="backToTopBtn"
-        class="w-12 h-12 rounded-full bg-slate-900/90 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none translate-y-3 aspect-square focus:outline-none"
+        class="w-12 h-12 rounded-full bg-white hover:bg-slate-100 text-black border border-slate-300 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none translate-y-3 aspect-square focus:outline-none"
         aria-label="Back to top"
       >
-        <i class="ph-bold ph-arrow-up text-xl"></i>
+        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
       </button>
 
       <!-- Fixed WhatsApp Button (Full Round Circle) -->
@@ -1175,19 +1170,6 @@
         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
       </a>
     </div>
-
-    <!-- INTERACTIVE DARK MODE DEMO SWITCHER -->
-    <button
-      id="themeToggleBtn"
-      class="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full text-white backdrop-blur-md cursor-pointer select-none border border-white/20 transition-all active:scale-95 group"
-      aria-label="Toggle Dark Mode Demo"
-      title="Toggle between Executive Midnight Dark Mode and Classic Light Mode"
-    >
-      <span id="themeToggleIcon" class="flex items-center text-amber-400 group-hover:scale-110 transition-transform">
-        <i class="ph-fill ph-moon-stars text-base"></i>
-      </span>
-      <span id="themeToggleText" class="text-xs font-bold tracking-wide">Executive Dark</span>
-    </button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

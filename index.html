@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,20 +22,9 @@
       rel="stylesheet"
     />
 
-    <!-- Theme Initialization (Defaults to Executive Midnight Dark for Demo) -->
+    <!-- Permanent Executive Dark Theme -->
     <script>
-      (function () {
-        try {
-          const savedTheme = localStorage.getItem("veyil_theme");
-          if (savedTheme === "light") {
-            document.documentElement.classList.remove("dark");
-          } else {
-            document.documentElement.classList.add("dark");
-          }
-        } catch (e) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
+      document.documentElement.classList.add("dark");
     </script>
 
     <!-- Tailwind CSS -->
@@ -265,9 +254,9 @@
               </a>
               <a
                 href="package.html"
-                class="hero-btn-secondary flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-gray-100 px-7 py-3.5 rounded-full font-inter font-semibold text-base transition-transform hover:scale-105 shadow-md"
+                class="hero-btn-secondary flex items-center justify-center gap-2 bg-white text-black hover:bg-slate-100 px-7 py-3.5 rounded-full font-inter font-bold text-base transition-transform hover:scale-105 shadow-md border border-white/40"
               >
-                7 Days Kerala Package <i class="ph-bold ph-arrow-up-right"></i>
+                <span class="text-black">7 Days Kerala Package</span> <i class="ph-bold ph-arrow-up-right text-black"></i>
               </a>
             </div>
             <div
@@ -973,7 +962,7 @@
               <a
                 href="https://wa.me/917994334254?text=Custom%20Trip%20Request"
                 target="_blank"
-                class="bg-white text-brand-orange hover:bg-orange-50 px-5 py-2.5 rounded-full text-sm font-bold inline-block hover:scale-105 transition-transform relative z-10 shadow-md"
+                class="bg-white text-black hover:bg-slate-100 px-5 py-2.5 rounded-full text-sm font-bold inline-block hover:scale-105 transition-transform relative z-10 shadow-md"
                 >Request Quote</a
               >
             </div>
@@ -1100,10 +1089,10 @@
             <a
               href="https://wa.me/917994334254?text=Hi%20Veyil%20Transit%2C%20I%20would%20like%20to%20plan%20a%20trip."
               target="_blank"
-              class="inline-flex items-center justify-center gap-3 bg-brand-navy hover:bg-[#0b386e] text-white px-8 py-4 rounded-xl font-bold text-base transition-transform hover:scale-105 shadow-md"
+              class="step-booking-cta inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-black px-8 py-4 rounded-xl font-bold text-base transition-transform hover:scale-105 shadow-md border border-slate-200/80"
             >
-              <i class="ph-bold ph-whatsapp-logo text-xl text-emerald-400"></i>
-              <span>Start WhatsApp Booking Now</span>
+              <i class="ph-bold ph-whatsapp-logo text-xl text-[#25D366]"></i>
+              <span class="text-black font-extrabold">Start WhatsApp Booking Now</span>
             </a>
           </div>
         </div>
@@ -1501,10 +1490,12 @@
       <!-- Back to Top Button -->
       <button
         id="backToTopBtn"
-        class="w-12 h-12 rounded-full bg-slate-900/90 hover:bg-brand-orange text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none translate-y-3 aspect-square focus:outline-none"
+        class="w-12 h-12 rounded-full bg-white hover:bg-slate-100 text-black border border-slate-300 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none translate-y-3 aspect-square focus:outline-none"
         aria-label="Back to top"
       >
-        <i class="ph-bold ph-arrow-up text-xl"></i>
+        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
       </button>
 
       <!-- Fixed WhatsApp Button (Full Round Circle) -->
@@ -1518,19 +1509,6 @@
         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
       </a>
     </div>
-
-    <!-- INTERACTIVE DARK MODE DEMO SWITCHER -->
-    <button
-      id="themeToggleBtn"
-      class="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-full text-white backdrop-blur-md cursor-pointer select-none border border-white/20 transition-all active:scale-95 group"
-      aria-label="Toggle Dark Mode Demo"
-      title="Toggle between Executive Midnight Dark Mode and Classic Light Mode"
-    >
-      <span id="themeToggleIcon" class="flex items-center text-amber-400 group-hover:scale-110 transition-transform">
-        <i class="ph-fill ph-moon-stars text-base"></i>
-      </span>
-      <span id="themeToggleText" class="text-xs font-bold tracking-wide">Executive Dark</span>
-    </button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
